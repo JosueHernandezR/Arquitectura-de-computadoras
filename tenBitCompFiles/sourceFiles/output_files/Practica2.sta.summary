@@ -1,0 +1,293 @@
+------------------------------------------------------------
+TimeQuest Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1200mV 85C Model Setup 'clockDivider:clock1|sOutputClk'
+Slack : -7.611
+TNS   : -2677.021
+
+Type  : Slow 1200mV 85C Model Setup 'fourDigitDisplay:fourDigDis|fourDigitDriver:driver|clk'
+Slack : -6.565
+TNS   : -28.713
+
+Type  : Slow 1200mV 85C Model Setup 'programCounter:progCnt|JKFlipFlop:flipflop3|sQ'
+Slack : -5.073
+TNS   : -5.073
+
+Type  : Slow 1200mV 85C Model Setup 'programCounter:progCnt|JKFlipFlop:flipflop1|sQ'
+Slack : -5.034
+TNS   : -5.034
+
+Type  : Slow 1200mV 85C Model Setup 'programCounter:progCnt|JKFlipFlop:flipflop2|sQ'
+Slack : -4.996
+TNS   : -4.996
+
+Type  : Slow 1200mV 85C Model Setup 'programCounter:progCnt|JKFlipFlop:flipflop|sQ'
+Slack : -4.753
+TNS   : -4.753
+
+Type  : Slow 1200mV 85C Model Setup 'inputClk'
+Slack : -3.772
+TNS   : -195.133
+
+Type  : Slow 1200mV 85C Model Setup 'clockDivider:clock1|sInputClk'
+Slack : -0.018
+TNS   : -0.018
+
+Type  : Slow 1200mV 85C Model Hold 'clockDivider:clock1|sOutputClk'
+Slack : -2.452
+TNS   : -65.594
+
+Type  : Slow 1200mV 85C Model Hold 'inputClk'
+Slack : -0.220
+TNS   : -0.247
+
+Type  : Slow 1200mV 85C Model Hold 'programCounter:progCnt|JKFlipFlop:flipflop2|sQ'
+Slack : 0.009
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'clockDivider:clock1|sInputClk'
+Slack : 0.096
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'programCounter:progCnt|JKFlipFlop:flipflop|sQ'
+Slack : 0.106
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'programCounter:progCnt|JKFlipFlop:flipflop1|sQ'
+Slack : 0.132
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'fourDigitDisplay:fourDigDis|fourDigitDriver:driver|clk'
+Slack : 0.405
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'programCounter:progCnt|JKFlipFlop:flipflop3|sQ'
+Slack : 0.445
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'inputClk'
+Slack : -3.000
+TNS   : -86.525
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'clockDivider:clock1|sOutputClk'
+Slack : -2.693
+TNS   : -542.762
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'fourDigitDisplay:fourDigDis|fourDigitDriver:driver|clk'
+Slack : -1.285
+TNS   : -11.565
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'clockDivider:clock1|sInputClk'
+Slack : -1.285
+TNS   : -1.285
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'programCounter:progCnt|JKFlipFlop:flipflop1|sQ'
+Slack : -1.285
+TNS   : -1.285
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'programCounter:progCnt|JKFlipFlop:flipflop2|sQ'
+Slack : -1.285
+TNS   : -1.285
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'programCounter:progCnt|JKFlipFlop:flipflop3|sQ'
+Slack : -1.285
+TNS   : -1.285
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'programCounter:progCnt|JKFlipFlop:flipflop|sQ'
+Slack : -1.285
+TNS   : -1.285
+
+Type  : Slow 1200mV 0C Model Setup 'clockDivider:clock1|sOutputClk'
+Slack : -6.981
+TNS   : -2441.316
+
+Type  : Slow 1200mV 0C Model Setup 'fourDigitDisplay:fourDigDis|fourDigitDriver:driver|clk'
+Slack : -5.837
+TNS   : -25.325
+
+Type  : Slow 1200mV 0C Model Setup 'programCounter:progCnt|JKFlipFlop:flipflop3|sQ'
+Slack : -4.528
+TNS   : -4.528
+
+Type  : Slow 1200mV 0C Model Setup 'programCounter:progCnt|JKFlipFlop:flipflop1|sQ'
+Slack : -4.477
+TNS   : -4.477
+
+Type  : Slow 1200mV 0C Model Setup 'programCounter:progCnt|JKFlipFlop:flipflop2|sQ'
+Slack : -4.459
+TNS   : -4.459
+
+Type  : Slow 1200mV 0C Model Setup 'programCounter:progCnt|JKFlipFlop:flipflop|sQ'
+Slack : -4.227
+TNS   : -4.227
+
+Type  : Slow 1200mV 0C Model Setup 'inputClk'
+Slack : -3.394
+TNS   : -172.303
+
+Type  : Slow 1200mV 0C Model Setup 'clockDivider:clock1|sInputClk'
+Slack : 0.038
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'clockDivider:clock1|sOutputClk'
+Slack : -2.134
+TNS   : -64.078
+
+Type  : Slow 1200mV 0C Model Hold 'inputClk'
+Slack : -0.183
+TNS   : -0.183
+
+Type  : Slow 1200mV 0C Model Hold 'programCounter:progCnt|JKFlipFlop:flipflop2|sQ'
+Slack : 0.012
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'clockDivider:clock1|sInputClk'
+Slack : 0.084
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'programCounter:progCnt|JKFlipFlop:flipflop|sQ'
+Slack : 0.113
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'programCounter:progCnt|JKFlipFlop:flipflop1|sQ'
+Slack : 0.135
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'fourDigitDisplay:fourDigDis|fourDigitDriver:driver|clk'
+Slack : 0.356
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'programCounter:progCnt|JKFlipFlop:flipflop3|sQ'
+Slack : 0.398
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'inputClk'
+Slack : -3.000
+TNS   : -86.525
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'clockDivider:clock1|sOutputClk'
+Slack : -2.649
+TNS   : -542.586
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'fourDigitDisplay:fourDigDis|fourDigitDriver:driver|clk'
+Slack : -1.285
+TNS   : -11.565
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'clockDivider:clock1|sInputClk'
+Slack : -1.285
+TNS   : -1.285
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'programCounter:progCnt|JKFlipFlop:flipflop1|sQ'
+Slack : -1.285
+TNS   : -1.285
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'programCounter:progCnt|JKFlipFlop:flipflop2|sQ'
+Slack : -1.285
+TNS   : -1.285
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'programCounter:progCnt|JKFlipFlop:flipflop3|sQ'
+Slack : -1.285
+TNS   : -1.285
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'programCounter:progCnt|JKFlipFlop:flipflop|sQ'
+Slack : -1.285
+TNS   : -1.285
+
+Type  : Fast 1200mV 0C Model Setup 'clockDivider:clock1|sOutputClk'
+Slack : -3.700
+TNS   : -1260.457
+
+Type  : Fast 1200mV 0C Model Setup 'fourDigitDisplay:fourDigDis|fourDigitDriver:driver|clk'
+Slack : -2.791
+TNS   : -10.892
+
+Type  : Fast 1200mV 0C Model Setup 'programCounter:progCnt|JKFlipFlop:flipflop1|sQ'
+Slack : -2.020
+TNS   : -2.020
+
+Type  : Fast 1200mV 0C Model Setup 'programCounter:progCnt|JKFlipFlop:flipflop3|sQ'
+Slack : -2.018
+TNS   : -2.018
+
+Type  : Fast 1200mV 0C Model Setup 'programCounter:progCnt|JKFlipFlop:flipflop2|sQ'
+Slack : -1.981
+TNS   : -1.981
+
+Type  : Fast 1200mV 0C Model Setup 'programCounter:progCnt|JKFlipFlop:flipflop|sQ'
+Slack : -1.867
+TNS   : -1.867
+
+Type  : Fast 1200mV 0C Model Setup 'inputClk'
+Slack : -1.310
+TNS   : -59.680
+
+Type  : Fast 1200mV 0C Model Setup 'clockDivider:clock1|sInputClk'
+Slack : 0.259
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'clockDivider:clock1|sOutputClk'
+Slack : -1.461
+TNS   : -43.089
+
+Type  : Fast 1200mV 0C Model Hold 'inputClk'
+Slack : -0.303
+TNS   : -0.500
+
+Type  : Fast 1200mV 0C Model Hold 'programCounter:progCnt|JKFlipFlop:flipflop2|sQ'
+Slack : -0.033
+TNS   : -0.033
+
+Type  : Fast 1200mV 0C Model Hold 'programCounter:progCnt|JKFlipFlop:flipflop|sQ'
+Slack : -0.003
+TNS   : -0.003
+
+Type  : Fast 1200mV 0C Model Hold 'programCounter:progCnt|JKFlipFlop:flipflop1|sQ'
+Slack : 0.019
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'clockDivider:clock1|sInputClk'
+Slack : 0.031
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'fourDigitDisplay:fourDigDis|fourDigitDriver:driver|clk'
+Slack : 0.182
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'programCounter:progCnt|JKFlipFlop:flipflop3|sQ'
+Slack : 0.206
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'inputClk'
+Slack : -3.000
+TNS   : -72.411
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'clockDivider:clock1|sOutputClk'
+Slack : -1.000
+TNS   : -418.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'fourDigitDisplay:fourDigDis|fourDigitDriver:driver|clk'
+Slack : -1.000
+TNS   : -9.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'clockDivider:clock1|sInputClk'
+Slack : -1.000
+TNS   : -1.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'programCounter:progCnt|JKFlipFlop:flipflop1|sQ'
+Slack : -1.000
+TNS   : -1.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'programCounter:progCnt|JKFlipFlop:flipflop2|sQ'
+Slack : -1.000
+TNS   : -1.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'programCounter:progCnt|JKFlipFlop:flipflop3|sQ'
+Slack : -1.000
+TNS   : -1.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'programCounter:progCnt|JKFlipFlop:flipflop|sQ'
+Slack : -1.000
+TNS   : -1.000
+
+------------------------------------------------------------

@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Mon Oct 14 21:03:19 2019
+Quartus II 32-bit Version : 12.1 Build 177 11/07/2012 SJ Web Edition
+Revision Name : Practica2
+Top-level Entity Name : Practica2
+Family : Cyclone IV E
+Total logic elements : 1,003
+    Total combinational functions : 668
+    Dedicated logic registers : 493
+Total registers : 493
+Total pins : 49
+Total virtual pins : 0
+Total memory bits : 320
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0

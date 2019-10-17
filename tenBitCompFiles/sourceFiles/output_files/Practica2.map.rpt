@@ -1,0 +1,842 @@
+Analysis & Synthesis report for Practica2
+Mon Oct 14 21:03:19 2019
+Quartus II 32-bit Version 12.1 Build 177 11/07/2012 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Analysis & Synthesis RAM Summary
+  9. Registers Removed During Synthesis
+ 10. General Register Statistics
+ 11. Inverted Register Statistics
+ 12. Registers Packed Into Inferred Megafunctions
+ 13. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 14. Source assignments for ramModule:RAM|altsyncram:Memory_rtl_0|altsyncram_sod1:auto_generated
+ 15. Parameter Settings for Inferred Entity Instance: ramModule:RAM|altsyncram:Memory_rtl_0
+ 16. altsyncram Parameter Settings by Entity Instance
+ 17. Port Connectivity Checks: "tenBitDRegister:oReg"
+ 18. Port Connectivity Checks: "ALU:arithlogic"
+ 19. Port Connectivity Checks: "tenBitDRegister:bReg"
+ 20. Port Connectivity Checks: "tenBitDRegister:aReg"
+ 21. Port Connectivity Checks: "controlROM:cRom"
+ 22. Port Connectivity Checks: "ringCounter:ringCnt"
+ 23. Port Connectivity Checks: "fiveBitDRegister:conReg"
+ 24. Port Connectivity Checks: "fiveBitDRegister:marLatch"
+ 25. Port Connectivity Checks: "fourDigitDisplay:fourDigDis|fourDigitDriver:driver"
+ 26. Port Connectivity Checks: "fourDigitDisplay:fourDigDis"
+ 27. Port Connectivity Checks: "outputMUX:oMux"
+ 28. Elapsed Time Per Partition
+ 29. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2012 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++-------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                  ;
++------------------------------------+------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Mon Oct 14 21:03:19 2019    ;
+; Quartus II 32-bit Version          ; 12.1 Build 177 11/07/2012 SJ Web Edition ;
+; Revision Name                      ; Practica2                                ;
+; Top-level Entity Name              ; Practica2                                ;
+; Family                             ; Cyclone IV E                             ;
+; Total logic elements               ; 1,003                                    ;
+;     Total combinational functions  ; 668                                      ;
+;     Dedicated logic registers      ; 493                                      ;
+; Total registers                    ; 493                                      ;
+; Total pins                         ; 49                                       ;
+; Total virtual pins                 ; 0                                        ;
+; Total memory bits                  ; 320                                      ;
+; Embedded Multiplier 9-bit elements ; 0                                        ;
+; Total PLLs                         ; 0                                        ;
++------------------------------------+------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                        ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                     ; Setting            ; Default Value      ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                     ; EP4CE115F29C7      ;                    ;
+; Top-level entity name                                                      ; Practica2          ; Practica2          ;
+; Family name                                                                ; Cyclone IV E       ; Cyclone IV GX      ;
+; Use smart compilation                                                      ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                                ; Off                ; Off                ;
+; Restructure Multiplexers                                                   ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                                        ; Off                ; Off                ;
+; Preserve fewer node names                                                  ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                                  ; Off                ; Off                ;
+; Verilog Version                                                            ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                               ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                   ; Auto               ; Auto               ;
+; Safe State Machine                                                         ; Off                ; Off                ;
+; Extract Verilog State Machines                                             ; On                 ; On                 ;
+; Extract VHDL State Machines                                                ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                          ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                 ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                  ; On                 ; On                 ;
+; Parallel Synthesis                                                         ; On                 ; On                 ;
+; DSP Block Balancing                                                        ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                         ; On                 ; On                 ;
+; Power-Up Don't Care                                                        ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                               ; Off                ; Off                ;
+; Remove Duplicate Registers                                                 ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                       ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                     ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                      ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                       ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                        ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                ; Off                ;
+; Optimization Technique                                                     ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                         ; 70                 ; 70                 ;
+; Auto Carry Chains                                                          ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                       ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                ;
+; Auto ROM Replacement                                                       ; On                 ; On                 ;
+; Auto RAM Replacement                                                       ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                 ; On                 ; On                 ;
+; Auto Shift Register Replacement                                            ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                            ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                              ; On                 ; On                 ;
+; Strict RAM Replacement                                                     ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
+; Auto RAM Block Balancing                                                   ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                      ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                              ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                    ; On                 ; On                 ;
+; Report Parameter Settings                                                  ; On                 ; On                 ;
+; Report Source Assignments                                                  ; On                 ; On                 ;
+; Report Connectivity Checks                                                 ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
+; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
+; PowerPlay Power Optimization                                               ; Normal compilation ; Normal compilation ;
+; HDL message level                                                          ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                            ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                         ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                ; 100                ;
+; Clock MUX Protection                                                       ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                ; Off                ; Off                ;
+; Block Design Naming                                                        ; Auto               ; Auto               ;
+; SDC constraint protection                                                  ; Off                ; Off                ;
+; Synthesis Effort                                                           ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                       ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                         ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                     ; On                 ; On                 ;
+; Synthesis Seed                                                             ; 1                  ; 1                  ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 4           ;
+; Maximum allowed            ; 2           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 2           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     1 processor            ; 100.0%      ;
+;     2 processors           ; < 0.1%      ;
+;     3-4 processors         ;   0.0%      ;
++----------------------------+-------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                              ;
++----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                                          ; Library ;
++----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------------------------------------+---------+
+; triStateBuffer.vhd               ; yes             ; User VHDL File               ; D:/Development/Github/Arquitectura-de-computadoras/tenBitCompFiles/sourceFiles/triStateBuffer.vhd     ;         ;
+; tenBitDRegisiter.vhd             ; yes             ; User VHDL File               ; D:/Development/Github/Arquitectura-de-computadoras/tenBitCompFiles/sourceFiles/tenBitDRegisiter.vhd   ;         ;
+; ringCounter.vhd                  ; yes             ; User VHDL File               ; D:/Development/Github/Arquitectura-de-computadoras/tenBitCompFiles/sourceFiles/ringCounter.vhd        ;         ;
+; ramMUX.vhd                       ; yes             ; User VHDL File               ; D:/Development/Github/Arquitectura-de-computadoras/tenBitCompFiles/sourceFiles/ramMUX.vhd             ;         ;
+; ramModule.vhd                    ; yes             ; User VHDL File               ; D:/Development/Github/Arquitectura-de-computadoras/tenBitCompFiles/sourceFiles/ramModule.vhd          ;         ;
+; programCounter.vhd               ; yes             ; User VHDL File               ; D:/Development/Github/Arquitectura-de-computadoras/tenBitCompFiles/sourceFiles/programCounter.vhd     ;         ;
+; preCounter.vhd                   ; yes             ; User VHDL File               ; D:/Development/Github/Arquitectura-de-computadoras/tenBitCompFiles/sourceFiles/preCounter.vhd         ;         ;
+; outputMUX.vhd                    ; yes             ; User VHDL File               ; D:/Development/Github/Arquitectura-de-computadoras/tenBitCompFiles/sourceFiles/outputMUX.vhd          ;         ;
+; oneBitDRegister.vhd              ; yes             ; User VHDL File               ; D:/Development/Github/Arquitectura-de-computadoras/tenBitCompFiles/sourceFiles/oneBitDRegister.vhd    ;         ;
+; MUX2to1.vhd                      ; yes             ; User VHDL File               ; D:/Development/Github/Arquitectura-de-computadoras/tenBitCompFiles/sourceFiles/MUX2to1.vhd            ;         ;
+; JKFlipFlop.vhd                   ; yes             ; User VHDL File               ; D:/Development/Github/Arquitectura-de-computadoras/tenBitCompFiles/sourceFiles/JKFlipFlop.vhd         ;         ;
+; fourDigitDriver.vhd              ; yes             ; User VHDL File               ; D:/Development/Github/Arquitectura-de-computadoras/tenBitCompFiles/sourceFiles/fourDigitDriver.vhd    ;         ;
+; fourDigitDisplay.vhd             ; yes             ; User VHDL File               ; D:/Development/Github/Arquitectura-de-computadoras/tenBitCompFiles/sourceFiles/fourDigitDisplay.vhd   ;         ;
+; fiveBitDRegister.vhd             ; yes             ; User VHDL File               ; D:/Development/Github/Arquitectura-de-computadoras/tenBitCompFiles/sourceFiles/fiveBitDRegister.vhd   ;         ;
+; decoder.vhd                      ; yes             ; User VHDL File               ; D:/Development/Github/Arquitectura-de-computadoras/tenBitCompFiles/sourceFiles/decoder.vhd            ;         ;
+; conROM.vhd                       ; yes             ; User VHDL File               ; D:/Development/Github/Arquitectura-de-computadoras/tenBitCompFiles/sourceFiles/conROM.vhd             ;         ;
+; clock.vhd                        ; yes             ; User VHDL File               ; D:/Development/Github/Arquitectura-de-computadoras/tenBitCompFiles/sourceFiles/clock.vhd              ;         ;
+; binToBCD.vhd                     ; yes             ; User VHDL File               ; D:/Development/Github/Arquitectura-de-computadoras/tenBitCompFiles/sourceFiles/binToBCD.vhd           ;         ;
+; ALU.vhd                          ; yes             ; User VHDL File               ; D:/Development/Github/Arquitectura-de-computadoras/tenBitCompFiles/sourceFiles/ALU.vhd                ;         ;
+; addrROM.vhd                      ; yes             ; User VHDL File               ; D:/Development/Github/Arquitectura-de-computadoras/tenBitCompFiles/sourceFiles/addrROM.vhd            ;         ;
+; Practica2.vhd                    ; yes             ; User VHDL File               ; D:/Development/Github/Arquitectura-de-computadoras/tenBitCompFiles/sourceFiles/Practica2.vhd          ;         ;
+; altsyncram.tdf                   ; yes             ; Megafunction                 ; d:/altera 12/quartus/libraries/megafunctions/altsyncram.tdf                                           ;         ;
+; stratix_ram_block.inc            ; yes             ; Megafunction                 ; d:/altera 12/quartus/libraries/megafunctions/stratix_ram_block.inc                                    ;         ;
+; lpm_mux.inc                      ; yes             ; Megafunction                 ; d:/altera 12/quartus/libraries/megafunctions/lpm_mux.inc                                              ;         ;
+; lpm_decode.inc                   ; yes             ; Megafunction                 ; d:/altera 12/quartus/libraries/megafunctions/lpm_decode.inc                                           ;         ;
+; aglobal121.inc                   ; yes             ; Megafunction                 ; d:/altera 12/quartus/libraries/megafunctions/aglobal121.inc                                           ;         ;
+; a_rdenreg.inc                    ; yes             ; Megafunction                 ; d:/altera 12/quartus/libraries/megafunctions/a_rdenreg.inc                                            ;         ;
+; altrom.inc                       ; yes             ; Megafunction                 ; d:/altera 12/quartus/libraries/megafunctions/altrom.inc                                               ;         ;
+; altram.inc                       ; yes             ; Megafunction                 ; d:/altera 12/quartus/libraries/megafunctions/altram.inc                                               ;         ;
+; altdpram.inc                     ; yes             ; Megafunction                 ; d:/altera 12/quartus/libraries/megafunctions/altdpram.inc                                             ;         ;
+; db/altsyncram_sod1.tdf           ; yes             ; Auto-Generated Megafunction  ; D:/Development/Github/Arquitectura-de-computadoras/tenBitCompFiles/sourceFiles/db/altsyncram_sod1.tdf ;         ;
++----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------------------------------------+---------+
+
+
++-----------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary         ;
++---------------------------------------------+-------+
+; Resource                                    ; Usage ;
++---------------------------------------------+-------+
+; Estimated Total logic elements              ; 1,003 ;
+;                                             ;       ;
+; Total combinational functions               ; 668   ;
+; Logic element usage by number of LUT inputs ;       ;
+;     -- 4 input functions                    ; 421   ;
+;     -- 3 input functions                    ; 129   ;
+;     -- <=2 input functions                  ; 118   ;
+;                                             ;       ;
+; Logic elements by mode                      ;       ;
+;     -- normal mode                          ; 559   ;
+;     -- arithmetic mode                      ; 109   ;
+;                                             ;       ;
+; Total registers                             ; 493   ;
+;     -- Dedicated logic registers            ; 493   ;
+;     -- I/O registers                        ; 0     ;
+;                                             ;       ;
+; I/O pins                                    ; 49    ;
+; Total memory bits                           ; 320   ;
+; Embedded Multiplier 9-bit elements          ; 0     ;
+; Maximum fan-out                             ; 425   ;
+; Total fan-out                               ; 3894  ;
+; Average fan-out                             ; 3.07  ;
++---------------------------------------------+-------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                    ;
++-------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------------------------------+--------------+
+; Compilation Hierarchy Node                ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                             ; Library Name ;
++-------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------------------------------+--------------+
+; |Practica2                                ; 668 (1)           ; 493 (0)      ; 320         ; 0            ; 0       ; 0         ; 49   ; 0            ; |Practica2                                                                      ;              ;
+;    |ALU:arithlogic|                       ; 15 (15)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Practica2|ALU:arithlogic                                                       ;              ;
+;    |addressROM:aRom|                      ; 5 (5)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Practica2|addressROM:aRom                                                      ;              ;
+;    |binToBCD:bcd|                         ; 42 (42)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Practica2|binToBCD:bcd                                                         ;              ;
+;    |clockDivider:clock1|                  ; 79 (79)           ; 35 (35)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Practica2|clockDivider:clock1                                                  ;              ;
+;    |controlROM:cRom|                      ; 24 (24)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Practica2|controlROM:cRom                                                      ;              ;
+;    |fiveBitDRegister:addrReg|             ; 0 (0)             ; 5 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Practica2|fiveBitDRegister:addrReg                                             ;              ;
+;       |oneBitDRegister:bit0|              ; 0 (0)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Practica2|fiveBitDRegister:addrReg|oneBitDRegister:bit0                        ;              ;
+;       |oneBitDRegister:bit1|              ; 0 (0)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Practica2|fiveBitDRegister:addrReg|oneBitDRegister:bit1                        ;              ;
+;       |oneBitDRegister:bit2|              ; 0 (0)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Practica2|fiveBitDRegister:addrReg|oneBitDRegister:bit2                        ;              ;
+;       |oneBitDRegister:bit3|              ; 0 (0)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Practica2|fiveBitDRegister:addrReg|oneBitDRegister:bit3                        ;              ;
+;       |oneBitDRegister:bit4|              ; 0 (0)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Practica2|fiveBitDRegister:addrReg|oneBitDRegister:bit4                        ;              ;
+;    |fiveBitDRegister:conReg|              ; 0 (0)             ; 5 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Practica2|fiveBitDRegister:conReg                                              ;              ;
+;       |oneBitDRegister:bit0|              ; 0 (0)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Practica2|fiveBitDRegister:conReg|oneBitDRegister:bit0                         ;              ;
+;       |oneBitDRegister:bit1|              ; 0 (0)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Practica2|fiveBitDRegister:conReg|oneBitDRegister:bit1                         ;              ;
+;       |oneBitDRegister:bit2|              ; 0 (0)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Practica2|fiveBitDRegister:conReg|oneBitDRegister:bit2                         ;              ;
+;       |oneBitDRegister:bit3|              ; 0 (0)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Practica2|fiveBitDRegister:conReg|oneBitDRegister:bit3                         ;              ;
+;       |oneBitDRegister:bit4|              ; 0 (0)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Practica2|fiveBitDRegister:conReg|oneBitDRegister:bit4                         ;              ;
+;    |fiveBitDRegister:marLatch|            ; 0 (0)             ; 5 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Practica2|fiveBitDRegister:marLatch                                            ;              ;
+;       |oneBitDRegister:bit0|              ; 0 (0)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Practica2|fiveBitDRegister:marLatch|oneBitDRegister:bit0                       ;              ;
+;       |oneBitDRegister:bit1|              ; 0 (0)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Practica2|fiveBitDRegister:marLatch|oneBitDRegister:bit1                       ;              ;
+;       |oneBitDRegister:bit2|              ; 0 (0)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Practica2|fiveBitDRegister:marLatch|oneBitDRegister:bit2                       ;              ;
+;       |oneBitDRegister:bit3|              ; 0 (0)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Practica2|fiveBitDRegister:marLatch|oneBitDRegister:bit3                       ;              ;
+;       |oneBitDRegister:bit4|              ; 0 (0)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Practica2|fiveBitDRegister:marLatch|oneBitDRegister:bit4                       ;              ;
+;    |fourDigitDisplay:fourDigDis|          ; 78 (0)            ; 40 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Practica2|fourDigitDisplay:fourDigDis                                          ;              ;
+;       |decoder:decode|                    ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Practica2|fourDigitDisplay:fourDigDis|decoder:decode                           ;              ;
+;       |fourDigitDriver:driver|            ; 71 (71)           ; 40 (40)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Practica2|fourDigitDisplay:fourDigDis|fourDigitDriver:driver                   ;              ;
+;    |inputMUX:inpMux|                      ; 5 (5)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Practica2|inputMUX:inpMux                                                      ;              ;
+;    |outputMUX:oMux|                       ; 15 (15)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Practica2|outputMUX:oMux                                                       ;              ;
+;    |preCounter:preCnt|                    ; 20 (20)           ; 9 (9)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Practica2|preCounter:preCnt                                                    ;              ;
+;    |programCounter:progCnt|               ; 24 (0)            ; 5 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Practica2|programCounter:progCnt                                               ;              ;
+;       |JKFlipFlop:flipflop1|              ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Practica2|programCounter:progCnt|JKFlipFlop:flipflop1                          ;              ;
+;       |JKFlipFlop:flipflop2|              ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Practica2|programCounter:progCnt|JKFlipFlop:flipflop2                          ;              ;
+;       |JKFlipFlop:flipflop3|              ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Practica2|programCounter:progCnt|JKFlipFlop:flipflop3                          ;              ;
+;       |JKFlipFlop:flipflop4|              ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Practica2|programCounter:progCnt|JKFlipFlop:flipflop4                          ;              ;
+;       |JKFlipFlop:flipflop|               ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Practica2|programCounter:progCnt|JKFlipFlop:flipflop                           ;              ;
+;       |triStateBuffer:buffer1|            ; 19 (19)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Practica2|programCounter:progCnt|triStateBuffer:buffer1                        ;              ;
+;    |ramMUX:rMux|                          ; 10 (10)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Practica2|ramMUX:rMux                                                          ;              ;
+;    |ramModule:RAM|                        ; 269 (269)         ; 325 (325)    ; 320         ; 0            ; 0       ; 0         ; 0    ; 0            ; |Practica2|ramModule:RAM                                                        ;              ;
+;       |altsyncram:Memory_rtl_0|           ; 0 (0)             ; 0 (0)        ; 320         ; 0            ; 0       ; 0         ; 0    ; 0            ; |Practica2|ramModule:RAM|altsyncram:Memory_rtl_0                                ;              ;
+;          |altsyncram_sod1:auto_generated| ; 0 (0)             ; 0 (0)        ; 320         ; 0            ; 0       ; 0         ; 0    ; 0            ; |Practica2|ramModule:RAM|altsyncram:Memory_rtl_0|altsyncram_sod1:auto_generated ;              ;
+;    |ringCounter:ringCnt|                  ; 66 (66)           ; 34 (34)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Practica2|ringCounter:ringCnt                                                  ;              ;
+;    |tenBitDRegister:aReg|                 ; 11 (0)            ; 10 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Practica2|tenBitDRegister:aReg                                                 ;              ;
+;       |oneBitDRegister:bit0|              ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Practica2|tenBitDRegister:aReg|oneBitDRegister:bit0                            ;              ;
+;       |oneBitDRegister:bit1|              ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Practica2|tenBitDRegister:aReg|oneBitDRegister:bit1                            ;              ;
+;       |oneBitDRegister:bit2|              ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Practica2|tenBitDRegister:aReg|oneBitDRegister:bit2                            ;              ;
+;       |oneBitDRegister:bit3|              ; 2 (2)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Practica2|tenBitDRegister:aReg|oneBitDRegister:bit3                            ;              ;
+;       |oneBitDRegister:bit4|              ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Practica2|tenBitDRegister:aReg|oneBitDRegister:bit4                            ;              ;
+;       |oneBitDRegister:bit5|              ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Practica2|tenBitDRegister:aReg|oneBitDRegister:bit5                            ;              ;
+;       |oneBitDRegister:bit6|              ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Practica2|tenBitDRegister:aReg|oneBitDRegister:bit6                            ;              ;
+;       |oneBitDRegister:bit7|              ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Practica2|tenBitDRegister:aReg|oneBitDRegister:bit7                            ;              ;
+;       |oneBitDRegister:bit8|              ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Practica2|tenBitDRegister:aReg|oneBitDRegister:bit8                            ;              ;
+;       |oneBitDRegister:bit9|              ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Practica2|tenBitDRegister:aReg|oneBitDRegister:bit9                            ;              ;
+;    |tenBitDRegister:bReg|                 ; 0 (0)             ; 10 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Practica2|tenBitDRegister:bReg                                                 ;              ;
+;       |oneBitDRegister:bit0|              ; 0 (0)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Practica2|tenBitDRegister:bReg|oneBitDRegister:bit0                            ;              ;
+;       |oneBitDRegister:bit1|              ; 0 (0)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Practica2|tenBitDRegister:bReg|oneBitDRegister:bit1                            ;              ;
+;       |oneBitDRegister:bit2|              ; 0 (0)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Practica2|tenBitDRegister:bReg|oneBitDRegister:bit2                            ;              ;
+;       |oneBitDRegister:bit3|              ; 0 (0)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Practica2|tenBitDRegister:bReg|oneBitDRegister:bit3                            ;              ;
+;       |oneBitDRegister:bit4|              ; 0 (0)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Practica2|tenBitDRegister:bReg|oneBitDRegister:bit4                            ;              ;
+;       |oneBitDRegister:bit5|              ; 0 (0)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Practica2|tenBitDRegister:bReg|oneBitDRegister:bit5                            ;              ;
+;       |oneBitDRegister:bit6|              ; 0 (0)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Practica2|tenBitDRegister:bReg|oneBitDRegister:bit6                            ;              ;
+;       |oneBitDRegister:bit7|              ; 0 (0)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Practica2|tenBitDRegister:bReg|oneBitDRegister:bit7                            ;              ;
+;       |oneBitDRegister:bit8|              ; 0 (0)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Practica2|tenBitDRegister:bReg|oneBitDRegister:bit8                            ;              ;
+;       |oneBitDRegister:bit9|              ; 0 (0)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Practica2|tenBitDRegister:bReg|oneBitDRegister:bit9                            ;              ;
+;    |tenBitDRegister:oReg|                 ; 0 (0)             ; 10 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Practica2|tenBitDRegister:oReg                                                 ;              ;
+;       |oneBitDRegister:bit0|              ; 0 (0)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Practica2|tenBitDRegister:oReg|oneBitDRegister:bit0                            ;              ;
+;       |oneBitDRegister:bit1|              ; 0 (0)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Practica2|tenBitDRegister:oReg|oneBitDRegister:bit1                            ;              ;
+;       |oneBitDRegister:bit2|              ; 0 (0)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Practica2|tenBitDRegister:oReg|oneBitDRegister:bit2                            ;              ;
+;       |oneBitDRegister:bit3|              ; 0 (0)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Practica2|tenBitDRegister:oReg|oneBitDRegister:bit3                            ;              ;
+;       |oneBitDRegister:bit4|              ; 0 (0)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Practica2|tenBitDRegister:oReg|oneBitDRegister:bit4                            ;              ;
+;       |oneBitDRegister:bit5|              ; 0 (0)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Practica2|tenBitDRegister:oReg|oneBitDRegister:bit5                            ;              ;
+;       |oneBitDRegister:bit6|              ; 0 (0)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Practica2|tenBitDRegister:oReg|oneBitDRegister:bit6                            ;              ;
+;       |oneBitDRegister:bit7|              ; 0 (0)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Practica2|tenBitDRegister:oReg|oneBitDRegister:bit7                            ;              ;
+;       |oneBitDRegister:bit8|              ; 0 (0)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Practica2|tenBitDRegister:oReg|oneBitDRegister:bit8                            ;              ;
+;       |oneBitDRegister:bit9|              ; 0 (0)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Practica2|tenBitDRegister:oReg|oneBitDRegister:bit9                            ;              ;
+;    |triStateBuffer:arithBuff1|            ; 4 (4)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Practica2|triStateBuffer:arithBuff1                                            ;              ;
++-------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                                                    ;
++---------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+------+
+; Name                                                                            ; Type ; Mode             ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size ; MIF  ;
++---------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+------+
+; ramModule:RAM|altsyncram:Memory_rtl_0|altsyncram_sod1:auto_generated|ALTSYNCRAM ; AUTO ; Simple Dual Port ; 32           ; 10           ; 32           ; 10           ; 320  ; None ;
++---------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                        ;
++--------------------------------------------------------------------+------------------------------------------------------+
+; Register name                                                      ; Reason for Removal                                   ;
++--------------------------------------------------------------------+------------------------------------------------------+
+; fourDigitDisplay:fourDigDis|fourDigitDriver:driver|anode[3]        ; Stuck at VCC due to stuck port data_in               ;
+; preCounter:preCnt|num[0]                                           ; Merged with preCounter:preCnt|controlWordLocation[0] ;
+; fourDigitDisplay:fourDigDis|fourDigitDriver:driver|digitPlace[2,3] ; Stuck at GND due to stuck port data_in               ;
+; Total Number of Removed Registers = 4                              ;                                                      ;
++--------------------------------------------------------------------+------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 493   ;
+; Number of registers using Synchronous Clear  ; 30    ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 45    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 375   ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++----------------------------------------------------+
+; Inverted Register Statistics                       ;
++------------------------------------------+---------+
+; Inverted Register                        ; Fan out ;
++------------------------------------------+---------+
+; preCounter:preCnt|controlWordLocation[0] ; 15      ;
+; clockDivider:clock1|sStop                ; 1       ;
+; clockDivider:clock1|count[0]             ; 2       ;
+; Total number of inverted registers = 3   ;         ;
++------------------------------------------+---------+
+
+
++--------------------------------------------------------------------+
+; Registers Packed Into Inferred Megafunctions                       ;
++--------------------------------+----------------------------+------+
+; Register Name                  ; Megafunction               ; Type ;
++--------------------------------+----------------------------+------+
+; ramModule:RAM|outputData[0..9] ; ramModule:RAM|Memory_rtl_0 ; RAM  ;
++--------------------------------+----------------------------+------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                            ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------------+
+; 5:1                ; 3 bits    ; 9 LEs         ; 6 LEs                ; 3 LEs                  ; Yes        ; |Practica2|fourDigitDisplay:fourDigDis|fourDigitDriver:driver|anode[2]      ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 4 LEs                ; 8 LEs                  ; Yes        ; |Practica2|fourDigitDisplay:fourDigDis|fourDigitDriver:driver|digitPlace[3] ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 15 LEs               ; 6 LEs                  ; Yes        ; |Practica2|fourDigitDisplay:fourDigDis|fourDigitDriver:driver|digit[3]      ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; No         ; |Practica2|preCounter:preCnt|num                                            ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------+
+; Source assignments for ramModule:RAM|altsyncram:Memory_rtl_0|altsyncram_sod1:auto_generated ;
++---------------------------------+--------------------+------+-------------------------------+
+; Assignment                      ; Value              ; From ; To                            ;
++---------------------------------+--------------------+------+-------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                             ;
++---------------------------------+--------------------+------+-------------------------------+
+
+
++----------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: ramModule:RAM|altsyncram:Memory_rtl_0 ;
++------------------------------------+----------------------+----------------------------+
+; Parameter Name                     ; Value                ; Type                       ;
++------------------------------------+----------------------+----------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                    ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                 ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY               ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE               ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE             ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped                    ;
+; OPERATION_MODE                     ; DUAL_PORT            ; Untyped                    ;
+; WIDTH_A                            ; 10                   ; Untyped                    ;
+; WIDTHAD_A                          ; 5                    ; Untyped                    ;
+; NUMWORDS_A                         ; 32                   ; Untyped                    ;
+; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                    ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                    ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                    ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                    ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped                    ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                    ;
+; WIDTH_B                            ; 10                   ; Untyped                    ;
+; WIDTHAD_B                          ; 5                    ; Untyped                    ;
+; NUMWORDS_B                         ; 32                   ; Untyped                    ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped                    ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                    ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                    ;
+; ADDRESS_REG_B                      ; CLOCK1               ; Untyped                    ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                    ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                    ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped                    ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                    ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                    ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                    ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                    ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                    ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Untyped                    ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                    ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                    ;
+; BYTE_SIZE                          ; 8                    ; Untyped                    ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                    ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                    ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                    ;
+; INIT_FILE                          ; UNUSED               ; Untyped                    ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                    ;
+; MAXIMUM_DEPTH                      ; 0                    ; Untyped                    ;
+; CLOCK_ENABLE_INPUT_A               ; NORMAL               ; Untyped                    ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                    ;
+; CLOCK_ENABLE_OUTPUT_A              ; NORMAL               ; Untyped                    ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                    ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                    ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                    ;
+; ENABLE_ECC                         ; FALSE                ; Untyped                    ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                    ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                    ;
+; DEVICE_FAMILY                      ; Cyclone IV E         ; Untyped                    ;
+; CBXI_PARAMETER                     ; altsyncram_sod1      ; Untyped                    ;
++------------------------------------+----------------------+----------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------+
+; altsyncram Parameter Settings by Entity Instance                                  ;
++-------------------------------------------+---------------------------------------+
+; Name                                      ; Value                                 ;
++-------------------------------------------+---------------------------------------+
+; Number of entity instances                ; 1                                     ;
+; Entity Instance                           ; ramModule:RAM|altsyncram:Memory_rtl_0 ;
+;     -- OPERATION_MODE                     ; DUAL_PORT                             ;
+;     -- WIDTH_A                            ; 10                                    ;
+;     -- NUMWORDS_A                         ; 32                                    ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                          ;
+;     -- WIDTH_B                            ; 10                                    ;
+;     -- NUMWORDS_B                         ; 32                                    ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                          ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                  ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                             ;
++-------------------------------------------+---------------------------------------+
+
+
++--------------------------------------------------+
+; Port Connectivity Checks: "tenBitDRegister:oReg" ;
++--------------+-------+----------+----------------+
+; Port         ; Type  ; Severity ; Details        ;
++--------------+-------+----------+----------------+
+; outputenable ; Input ; Info     ; Stuck at GND   ;
++--------------+-------+----------+----------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "ALU:arithlogic"                                                                            ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port        ; Type   ; Severity ; Details                                                                             ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+; greaterthan ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; equalto     ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; lessthan    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------+
+; Port Connectivity Checks: "tenBitDRegister:bReg" ;
++--------------+-------+----------+----------------+
+; Port         ; Type  ; Severity ; Details        ;
++--------------+-------+----------+----------------+
+; outputenable ; Input ; Info     ; Stuck at GND   ;
++--------------+-------+----------+----------------+
+
+
++--------------------------------------------------+
+; Port Connectivity Checks: "tenBitDRegister:aReg" ;
++--------------+-------+----------+----------------+
+; Port         ; Type  ; Severity ; Details        ;
++--------------+-------+----------+----------------+
+; outputenable ; Input ; Info     ; Stuck at GND   ;
++--------------+-------+----------+----------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "controlROM:cRom"                                                                                   ;
++---------------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port                ; Type   ; Severity ; Details                                                                             ;
++---------------------+--------+----------+-------------------------------------------------------------------------------------+
+; controlword[18..13] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++---------------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "ringCounter:ringCnt"                                                                       ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port        ; Type   ; Severity ; Details                                                                             ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+; count[5..4] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; count[2..1] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Port Connectivity Checks: "fiveBitDRegister:conReg" ;
++--------------+-------+----------+-------------------+
+; Port         ; Type  ; Severity ; Details           ;
++--------------+-------+----------+-------------------+
+; outputenable ; Input ; Info     ; Stuck at GND      ;
++--------------+-------+----------+-------------------+
+
+
++-------------------------------------------------------+
+; Port Connectivity Checks: "fiveBitDRegister:marLatch" ;
++--------------+-------+----------+---------------------+
+; Port         ; Type  ; Severity ; Details             ;
++--------------+-------+----------+---------------------+
+; outputenable ; Input ; Info     ; Stuck at GND        ;
++--------------+-------+----------+---------------------+
+
+
++--------------------------------------------------------------------------------+
+; Port Connectivity Checks: "fourDigitDisplay:fourDigDis|fourDigitDriver:driver" ;
++------+-------+----------+------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                              ;
++------+-------+----------+------------------------------------------------------+
+; rst  ; Input ; Info     ; Stuck at GND                                         ;
++------+-------+----------+------------------------------------------------------+
+
+
++---------------------------------------------------------+
+; Port Connectivity Checks: "fourDigitDisplay:fourDigDis" ;
++----------------+-------+----------+---------------------+
+; Port           ; Type  ; Severity ; Details             ;
++----------------+-------+----------+---------------------+
+; number[15..12] ; Input ; Info     ; Stuck at GND        ;
++----------------+-------+----------+---------------------+
+
+
++-------------------------------------------------------+
+; Port Connectivity Checks: "outputMUX:oMux"            ;
++---------------------+-------+----------+--------------+
+; Port                ; Type  ; Severity ; Details      ;
++---------------------+-------+----------+--------------+
+; progmodeinput[10]   ; Input ; Info     ; Stuck at GND ;
+; runmodeinput[10..5] ; Input ; Info     ; Stuck at GND ;
++---------------------+-------+----------+--------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:08     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 32-bit Analysis & Synthesis
+    Info: Version 12.1 Build 177 11/07/2012 SJ Web Edition
+    Info: Processing started: Mon Oct 14 21:03:05 2019
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Practica2 -c Practica2
+Info (11104): Parallel Compilation has detected 4 hyper-threaded processors. However, the extra hyper-threaded processors will not be used by default. Parallel Compilation will use 2 of the 2 physical processors detected instead.
+Info (12021): Found 2 design units, including 1 entities, in source file tristatebuffer.vhd
+    Info (12022): Found design unit 1: triStateBuffer-Behavioral
+    Info (12023): Found entity 1: triStateBuffer
+Info (12021): Found 2 design units, including 1 entities, in source file tenbitdregisiter.vhd
+    Info (12022): Found design unit 1: tenBitDRegister-Behavioral
+    Info (12023): Found entity 1: tenBitDRegister
+Info (12021): Found 2 design units, including 1 entities, in source file ringcounter.vhd
+    Info (12022): Found design unit 1: ringCounter-Behavioral
+    Info (12023): Found entity 1: ringCounter
+Info (12021): Found 2 design units, including 1 entities, in source file rammux.vhd
+    Info (12022): Found design unit 1: ramMUX-Behavioral
+    Info (12023): Found entity 1: ramMUX
+Info (12021): Found 2 design units, including 1 entities, in source file rammodule.vhd
+    Info (12022): Found design unit 1: ramModule-Behavioral
+    Info (12023): Found entity 1: ramModule
+Info (12021): Found 2 design units, including 1 entities, in source file programcounter.vhd
+    Info (12022): Found design unit 1: programCounter-Behavioral
+    Info (12023): Found entity 1: programCounter
+Info (12021): Found 2 design units, including 1 entities, in source file precounter.vhd
+    Info (12022): Found design unit 1: preCounter-Behavioral
+    Info (12023): Found entity 1: preCounter
+Info (12021): Found 2 design units, including 1 entities, in source file outputmux.vhd
+    Info (12022): Found design unit 1: outputMUX-Behavioral
+    Info (12023): Found entity 1: outputMUX
+Info (12021): Found 2 design units, including 1 entities, in source file onebitdregister.vhd
+    Info (12022): Found design unit 1: oneBitDRegister-Structural
+    Info (12023): Found entity 1: oneBitDRegister
+Info (12021): Found 2 design units, including 1 entities, in source file mux2to1.vhd
+    Info (12022): Found design unit 1: inputMUX-Behavioral
+    Info (12023): Found entity 1: inputMUX
+Info (12021): Found 2 design units, including 1 entities, in source file jkflipflop.vhd
+    Info (12022): Found design unit 1: JKFlipFlop-Behavioral
+    Info (12023): Found entity 1: JKFlipFlop
+Info (12021): Found 2 design units, including 1 entities, in source file fourdigitdriver.vhd
+    Info (12022): Found design unit 1: fourDigitDriver-Behavioral
+    Info (12023): Found entity 1: fourDigitDriver
+Info (12021): Found 2 design units, including 1 entities, in source file fourdigitdisplay.vhd
+    Info (12022): Found design unit 1: fourDigitDisplay-Behavioral
+    Info (12023): Found entity 1: fourDigitDisplay
+Info (12021): Found 2 design units, including 1 entities, in source file fivebitdregister.vhd
+    Info (12022): Found design unit 1: fiveBitDRegister-Behavioral
+    Info (12023): Found entity 1: fiveBitDRegister
+Info (12021): Found 2 design units, including 1 entities, in source file eightbitcomputer.vhd
+    Info (12022): Found design unit 1: eightBitComputer-Behavioral
+    Info (12023): Found entity 1: eightBitComputer
+Info (12021): Found 2 design units, including 1 entities, in source file decoder.vhd
+    Info (12022): Found design unit 1: decoder-Behavioral
+    Info (12023): Found entity 1: decoder
+Info (12021): Found 2 design units, including 1 entities, in source file conrom.vhd
+    Info (12022): Found design unit 1: controlROM-Behavioral
+    Info (12023): Found entity 1: controlROM
+Info (12021): Found 2 design units, including 1 entities, in source file conditionaljmp.vhd
+    Info (12022): Found design unit 1: conditionalJmp-Behavioral
+    Info (12023): Found entity 1: conditionalJmp
+Info (12021): Found 2 design units, including 1 entities, in source file clock.vhd
+    Info (12022): Found design unit 1: clockDivider-Behavioral
+    Info (12023): Found entity 1: clockDivider
+Info (12021): Found 2 design units, including 1 entities, in source file bintobcd.vhd
+    Info (12022): Found design unit 1: binToBCD-Behavioral
+    Info (12023): Found entity 1: binToBCD
+Info (12021): Found 2 design units, including 1 entities, in source file alu.vhd
+    Info (12022): Found design unit 1: ALU-Behavioral
+    Info (12023): Found entity 1: ALU
+Info (12021): Found 2 design units, including 1 entities, in source file addrrom.vhd
+    Info (12022): Found design unit 1: addressROM-Behavioral
+    Info (12023): Found entity 1: addressROM
+Info (12021): Found 2 design units, including 1 entities, in source file practica2.vhd
+    Info (12022): Found design unit 1: Practica2-Behavioral
+    Info (12023): Found entity 1: Practica2
+Info (12127): Elaborating entity "Practica2" for the top level hierarchy
+Warning (10541): VHDL Signal Declaration warning at Practica2.vhd(115): used implicit default value for signal "sJumpAddress" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10036): Verilog HDL or VHDL warning at Practica2.vhd(117): object "sGreaterThan" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at Practica2.vhd(117): object "sEqualTo" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at Practica2.vhd(117): object "sLessThan" assigned a value but never read
+Warning (10541): VHDL Signal Declaration warning at Practica2.vhd(117): used implicit default value for signal "sAddressEnable" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Info (12128): Elaborating entity "ramMUX" for hierarchy "ramMUX:rMux"
+Info (12128): Elaborating entity "programCounter" for hierarchy "programCounter:progCnt"
+Info (12128): Elaborating entity "JKFlipFlop" for hierarchy "programCounter:progCnt|JKFlipFlop:flipflop"
+Warning (10492): VHDL Process Statement warning at JKFlipFlop.vhd(58): signal "set" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at JKFlipFlop.vhd(59): signal "setInput" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Info (12128): Elaborating entity "triStateBuffer" for hierarchy "programCounter:progCnt|triStateBuffer:buffer1"
+Info (12128): Elaborating entity "outputMUX" for hierarchy "outputMUX:oMux"
+Info (12128): Elaborating entity "binToBCD" for hierarchy "binToBCD:bcd"
+Info (12128): Elaborating entity "fourDigitDisplay" for hierarchy "fourDigitDisplay:fourDigDis"
+Warning (10492): VHDL Process Statement warning at fourDigitDisplay.vhd(37): signal "number" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Info (12128): Elaborating entity "fourDigitDriver" for hierarchy "fourDigitDisplay:fourDigDis|fourDigitDriver:driver"
+Info (12128): Elaborating entity "decoder" for hierarchy "fourDigitDisplay:fourDigDis|decoder:decode"
+Info (12128): Elaborating entity "clockDivider" for hierarchy "clockDivider:clock1"
+Warning (10492): VHDL Process Statement warning at clock.vhd(48): signal "sStop" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at clock.vhd(48): signal "sOutputClk" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Info (12128): Elaborating entity "fiveBitDRegister" for hierarchy "fiveBitDRegister:marLatch"
+Info (12128): Elaborating entity "oneBitDRegister" for hierarchy "fiveBitDRegister:marLatch|oneBitDRegister:bit0"
+Warning (10492): VHDL Process Statement warning at oneBitDRegister.vhd(34): signal "sQ" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Info (12128): Elaborating entity "inputMUX" for hierarchy "inputMUX:inpMux"
+Info (12128): Elaborating entity "ramModule" for hierarchy "ramModule:RAM"
+Warning (10492): VHDL Process Statement warning at ramModule.vhd(42): signal "readWrite" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at ramModule.vhd(43): signal "Memory" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at ramModule.vhd(43): signal "inputAddress" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Info (12128): Elaborating entity "addressROM" for hierarchy "addressROM:aRom"
+Info (12128): Elaborating entity "ringCounter" for hierarchy "ringCounter:ringCnt"
+Info (12128): Elaborating entity "preCounter" for hierarchy "preCounter:preCnt"
+Info (12128): Elaborating entity "controlROM" for hierarchy "controlROM:cRom"
+Warning (10492): VHDL Process Statement warning at conROM.vhd(71): signal "sControlWord" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Info (12128): Elaborating entity "tenBitDRegister" for hierarchy "tenBitDRegister:aReg"
+Info (12128): Elaborating entity "ALU" for hierarchy "ALU:arithlogic"
+Warning (10037): Verilog HDL or VHDL warning at ALU.vhd(26): conditional expression evaluates to a constant
+Warning (10631): VHDL Process Statement warning at ALU.vhd(22): inferring latch(es) for signal or variable "equalTo", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at ALU.vhd(22): inferring latch(es) for signal or variable "greaterThan", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at ALU.vhd(22): inferring latch(es) for signal or variable "lessThan", which holds its previous value in one or more paths through the process
+Info (10041): Inferred latch for "lessThan" at ALU.vhd(22)
+Info (10041): Inferred latch for "greaterThan" at ALU.vhd(22)
+Info (10041): Inferred latch for "equalTo" at ALU.vhd(22)
+Warning (13046): Tri-state node(s) do not directly drive top-level pin(s)
+    Warning (13049): Converted tri-state buffer "tenBitDRegister:oReg|oneBitDRegister:bit9|Q" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "tenBitDRegister:oReg|oneBitDRegister:bit8|Q" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "tenBitDRegister:oReg|oneBitDRegister:bit7|Q" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "tenBitDRegister:oReg|oneBitDRegister:bit6|Q" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "tenBitDRegister:oReg|oneBitDRegister:bit5|Q" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "tenBitDRegister:oReg|oneBitDRegister:bit4|Q" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "tenBitDRegister:oReg|oneBitDRegister:bit3|Q" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "tenBitDRegister:oReg|oneBitDRegister:bit2|Q" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "tenBitDRegister:oReg|oneBitDRegister:bit1|Q" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "tenBitDRegister:oReg|oneBitDRegister:bit0|Q" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "tenBitDRegister:bReg|oneBitDRegister:bit9|Q" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "tenBitDRegister:bReg|oneBitDRegister:bit8|Q" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "tenBitDRegister:bReg|oneBitDRegister:bit7|Q" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "tenBitDRegister:bReg|oneBitDRegister:bit6|Q" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "tenBitDRegister:bReg|oneBitDRegister:bit5|Q" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "tenBitDRegister:bReg|oneBitDRegister:bit4|Q" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "tenBitDRegister:bReg|oneBitDRegister:bit3|Q" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "tenBitDRegister:bReg|oneBitDRegister:bit2|Q" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "tenBitDRegister:bReg|oneBitDRegister:bit1|Q" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "tenBitDRegister:bReg|oneBitDRegister:bit0|Q" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "fiveBitDRegister:conReg|oneBitDRegister:bit4|Q" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "fiveBitDRegister:conReg|oneBitDRegister:bit3|Q" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "fiveBitDRegister:conReg|oneBitDRegister:bit2|Q" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "fiveBitDRegister:conReg|oneBitDRegister:bit1|Q" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "fiveBitDRegister:conReg|oneBitDRegister:bit0|Q" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "fiveBitDRegister:marLatch|oneBitDRegister:bit4|Q" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "fiveBitDRegister:marLatch|oneBitDRegister:bit3|Q" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "fiveBitDRegister:marLatch|oneBitDRegister:bit2|Q" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "fiveBitDRegister:marLatch|oneBitDRegister:bit1|Q" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "fiveBitDRegister:marLatch|oneBitDRegister:bit0|Q" feeding internal logic into a wire
+Warning (276027): Inferred dual-clock RAM node "ramModule:RAM|Memory_rtl_0" from synchronous design logic.  The read-during-write behavior of a dual-clock RAM is undefined and may not match the behavior of the original design.
+Info (276014): Found 1 instances of uninferred RAM logic
+    Info (276007): RAM logic "ramModule:RAM|Memory" is uninferred due to asynchronous read logic
+Info (19000): Inferred 1 megafunctions from design logic
+    Info (276029): Inferred altsyncram megafunction from the following design logic: "ramModule:RAM|Memory_rtl_0" 
+        Info (286033): Parameter OPERATION_MODE set to DUAL_PORT
+        Info (286033): Parameter WIDTH_A set to 10
+        Info (286033): Parameter WIDTHAD_A set to 5
+        Info (286033): Parameter NUMWORDS_A set to 32
+        Info (286033): Parameter WIDTH_B set to 10
+        Info (286033): Parameter WIDTHAD_B set to 5
+        Info (286033): Parameter NUMWORDS_B set to 32
+        Info (286033): Parameter ADDRESS_ACLR_A set to NONE
+        Info (286033): Parameter OUTDATA_REG_B set to UNREGISTERED
+        Info (286033): Parameter ADDRESS_ACLR_B set to NONE
+        Info (286033): Parameter OUTDATA_ACLR_B set to NONE
+        Info (286033): Parameter ADDRESS_REG_B set to CLOCK1
+        Info (286033): Parameter INDATA_ACLR_A set to NONE
+        Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
+Info (12130): Elaborated megafunction instantiation "ramModule:RAM|altsyncram:Memory_rtl_0"
+Info (12133): Instantiated megafunction "ramModule:RAM|altsyncram:Memory_rtl_0" with the following parameter:
+    Info (12134): Parameter "OPERATION_MODE" = "DUAL_PORT"
+    Info (12134): Parameter "WIDTH_A" = "10"
+    Info (12134): Parameter "WIDTHAD_A" = "5"
+    Info (12134): Parameter "NUMWORDS_A" = "32"
+    Info (12134): Parameter "WIDTH_B" = "10"
+    Info (12134): Parameter "WIDTHAD_B" = "5"
+    Info (12134): Parameter "NUMWORDS_B" = "32"
+    Info (12134): Parameter "ADDRESS_ACLR_A" = "NONE"
+    Info (12134): Parameter "OUTDATA_REG_B" = "UNREGISTERED"
+    Info (12134): Parameter "ADDRESS_ACLR_B" = "NONE"
+    Info (12134): Parameter "OUTDATA_ACLR_B" = "NONE"
+    Info (12134): Parameter "ADDRESS_REG_B" = "CLOCK1"
+    Info (12134): Parameter "INDATA_ACLR_A" = "NONE"
+    Info (12134): Parameter "WRCONTROL_ACLR_A" = "NONE"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_sod1.tdf
+    Info (12023): Found entity 1: altsyncram_sod1
+Warning (13046): Tri-state node(s) do not directly drive top-level pin(s)
+    Warning (13047): Converted the fan-out from the tri-state buffer "tenBitDRegister:aReg|oneBitDRegister:bit3|Q" to the node "tenBitDRegister:oReg|oneBitDRegister:bit3|sQ" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "tenBitDRegister:aReg|oneBitDRegister:bit2|Q" to the node "tenBitDRegister:oReg|oneBitDRegister:bit2|sQ" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "tenBitDRegister:aReg|oneBitDRegister:bit1|Q" to the node "tenBitDRegister:oReg|oneBitDRegister:bit1|sQ" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "tenBitDRegister:aReg|oneBitDRegister:bit0|Q" to the node "tenBitDRegister:oReg|oneBitDRegister:bit0|sQ" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "tenBitDRegister:aReg|oneBitDRegister:bit4|Q" to the node "tenBitDRegister:oReg|oneBitDRegister:bit4|sQ" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "tenBitDRegister:aReg|oneBitDRegister:bit5|Q" to the node "tenBitDRegister:oReg|oneBitDRegister:bit5|sQ" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "tenBitDRegister:aReg|oneBitDRegister:bit6|Q" to the node "tenBitDRegister:oReg|oneBitDRegister:bit6|sQ" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "tenBitDRegister:aReg|oneBitDRegister:bit7|Q" to the node "tenBitDRegister:oReg|oneBitDRegister:bit7|sQ" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "tenBitDRegister:aReg|oneBitDRegister:bit8|Q" to the node "tenBitDRegister:oReg|oneBitDRegister:bit8|sQ" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "tenBitDRegister:aReg|oneBitDRegister:bit9|Q" to the node "tenBitDRegister:oReg|oneBitDRegister:bit9|sQ" into an OR gate
+Warning (13046): Tri-state node(s) do not directly drive top-level pin(s)
+    Warning (13047): Converted the fan-out from the tri-state buffer "programCounter:progCnt|triStateBuffer:buffer1|Dout[0]" to the node "tenBitDRegister:bReg|oneBitDRegister:bit0|sQ" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "programCounter:progCnt|triStateBuffer:buffer1|Dout[1]" to the node "tenBitDRegister:bReg|oneBitDRegister:bit1|sQ" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "programCounter:progCnt|triStateBuffer:buffer1|Dout[2]" to the node "tenBitDRegister:bReg|oneBitDRegister:bit2|sQ" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "programCounter:progCnt|triStateBuffer:buffer1|Dout[3]" to the node "tenBitDRegister:bReg|oneBitDRegister:bit3|sQ" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "programCounter:progCnt|triStateBuffer:buffer1|Dout[4]" to the node "tenBitDRegister:bReg|oneBitDRegister:bit4|sQ" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "ramModule:RAM|outputDataToBus[5]" to the node "tenBitDRegister:bReg|oneBitDRegister:bit5|sQ" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "ramModule:RAM|outputDataToBus[6]" to the node "tenBitDRegister:bReg|oneBitDRegister:bit6|sQ" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "ramModule:RAM|outputDataToBus[7]" to the node "tenBitDRegister:bReg|oneBitDRegister:bit7|sQ" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "ramModule:RAM|outputDataToBus[8]" to the node "tenBitDRegister:bReg|oneBitDRegister:bit8|sQ" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "ramModule:RAM|outputDataToBus[9]" to the node "tenBitDRegister:bReg|oneBitDRegister:bit9|sQ" into an OR gate
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "enableOut[3]" is stuck at VCC
+    Warning (13410): Pin "outputData[7]" is stuck at VCC
+    Warning (13410): Pin "ledOutput[10]" is stuck at GND
+Info (286030): Timing-Driven Synthesis is running
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 2 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "defaultProgram"
+    Warning (15610): No output dependent on input pin "clearProgram"
+Info (21057): Implemented 1135 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 21 input pins
+    Info (21059): Implemented 28 output pins
+    Info (21061): Implemented 1076 logic cells
+    Info (21064): Implemented 10 RAM segments
+Info: Quartus II 32-bit Analysis & Synthesis was successful. 0 errors, 80 warnings
+    Info: Peak virtual memory: 409 megabytes
+    Info: Processing ended: Mon Oct 14 21:03:19 2019
+    Info: Elapsed time: 00:00:14
+    Info: Total CPU time (on all processors): 00:00:08
+
+

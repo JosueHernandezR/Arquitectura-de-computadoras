@@ -1,0 +1,1841 @@
+|Practica2
+inputAddress[0] => inputMUX:inpMux.address[0]
+inputAddress[1] => inputMUX:inpMux.address[1]
+inputAddress[2] => inputMUX:inpMux.address[2]
+inputAddress[3] => inputMUX:inpMux.address[3]
+inputAddress[4] => inputMUX:inpMux.address[4]
+inputData[0] => ramMUX:rMux.userInput[0]
+inputData[1] => ramMUX:rMux.userInput[1]
+inputData[2] => ramMUX:rMux.userInput[2]
+inputData[3] => ramMUX:rMux.userInput[3]
+inputData[4] => ramMUX:rMux.userInput[4]
+inputData[5] => ramMUX:rMux.userInput[5]
+inputData[6] => ramMUX:rMux.userInput[6]
+inputData[7] => ramMUX:rMux.userInput[7]
+inputData[8] => ramMUX:rMux.userInput[8]
+inputData[9] => ramMUX:rMux.userInput[9]
+program => sProgram.IN1
+program => outputMUX:oMux.modeSelect
+program => inputMUX:inpMux.program
+write => ramModule:RAM.program
+inputClk => fourDigitDisplay:fourDigDis.clk
+inputClk => clockDivider:clock1.inputClk
+reset => programCounter:progCnt.Clr
+reset => outputMUX:oMux.runModeInput[12]
+reset => fiveBitDRegister:marLatch.ARST
+reset => fiveBitDRegister:addrReg.ARST
+reset => fiveBitDRegister:conReg.ARST
+reset => ringCounter:ringCnt.reset
+reset => preCounter:preCnt.Clr
+reset => tenBitDRegister:aReg.ARST
+reset => tenBitDRegister:bReg.ARST
+reset => tenBitDRegister:oReg.ARST
+defaultProgram => ~NO_FANOUT~
+clearProgram => ~NO_FANOUT~
+enableOut[0] <= fourDigitDisplay:fourDigDis.anode[0]
+enableOut[1] <= fourDigitDisplay:fourDigDis.anode[1]
+enableOut[2] <= fourDigitDisplay:fourDigDis.anode[2]
+enableOut[3] <= fourDigitDisplay:fourDigDis.anode[3]
+outputData[0] <= fourDigitDisplay:fourDigDis.cathode[0]
+outputData[1] <= fourDigitDisplay:fourDigDis.cathode[1]
+outputData[2] <= fourDigitDisplay:fourDigDis.cathode[2]
+outputData[3] <= fourDigitDisplay:fourDigDis.cathode[3]
+outputData[4] <= fourDigitDisplay:fourDigDis.cathode[4]
+outputData[5] <= fourDigitDisplay:fourDigDis.cathode[5]
+outputData[6] <= fourDigitDisplay:fourDigDis.cathode[6]
+outputData[7] <= fourDigitDisplay:fourDigDis.cathode[7]
+ledOutput[0] <= outputMUX:oMux.ledOutput[0]
+ledOutput[1] <= outputMUX:oMux.ledOutput[1]
+ledOutput[2] <= outputMUX:oMux.ledOutput[2]
+ledOutput[3] <= outputMUX:oMux.ledOutput[3]
+ledOutput[4] <= outputMUX:oMux.ledOutput[4]
+ledOutput[5] <= outputMUX:oMux.ledOutput[5]
+ledOutput[6] <= outputMUX:oMux.ledOutput[6]
+ledOutput[7] <= outputMUX:oMux.ledOutput[7]
+ledOutput[8] <= outputMUX:oMux.ledOutput[8]
+ledOutput[9] <= outputMUX:oMux.ledOutput[9]
+ledOutput[10] <= outputMUX:oMux.ledOutput[10]
+ledOutput[11] <= outputMUX:oMux.ledOutput[11]
+ledOutput[12] <= outputMUX:oMux.ledOutput[12]
+ledOutput[13] <= outputMUX:oMux.ledOutput[13]
+ledOutput[14] <= outputMUX:oMux.ledOutput[14]
+ledOutput[15] <= outputMUX:oMux.ledOutput[15]
+
+
+|Practica2|ramMUX:rMux
+userInput[0] => output.DATAB
+userInput[1] => output.DATAB
+userInput[2] => output.DATAB
+userInput[3] => output.DATAB
+userInput[4] => output.DATAB
+userInput[5] => output.DATAB
+userInput[6] => output.DATAB
+userInput[7] => output.DATAB
+userInput[8] => output.DATAB
+userInput[9] => output.DATAB
+aRegInput[0] => output.DATAA
+aRegInput[1] => output.DATAA
+aRegInput[2] => output.DATAA
+aRegInput[3] => output.DATAA
+aRegInput[4] => output.DATAA
+aRegInput[5] => output.DATAA
+aRegInput[6] => output.DATAA
+aRegInput[7] => output.DATAA
+aRegInput[8] => output.DATAA
+aRegInput[9] => output.DATAA
+output[0] <= output.DB_MAX_OUTPUT_PORT_TYPE
+output[1] <= output.DB_MAX_OUTPUT_PORT_TYPE
+output[2] <= output.DB_MAX_OUTPUT_PORT_TYPE
+output[3] <= output.DB_MAX_OUTPUT_PORT_TYPE
+output[4] <= output.DB_MAX_OUTPUT_PORT_TYPE
+output[5] <= output.DB_MAX_OUTPUT_PORT_TYPE
+output[6] <= output.DB_MAX_OUTPUT_PORT_TYPE
+output[7] <= output.DB_MAX_OUTPUT_PORT_TYPE
+output[8] <= output.DB_MAX_OUTPUT_PORT_TYPE
+output[9] <= output.DB_MAX_OUTPUT_PORT_TYPE
+control => output.OUTPUTSELECT
+control => output.OUTPUTSELECT
+control => output.OUTPUTSELECT
+control => output.OUTPUTSELECT
+control => output.OUTPUTSELECT
+control => output.OUTPUTSELECT
+control => output.OUTPUTSELECT
+control => output.OUTPUTSELECT
+control => output.OUTPUTSELECT
+control => output.OUTPUTSELECT
+
+
+|Practica2|programCounter:progCnt
+Cp => JKFlipFlop:flipflop.JK[1]
+Cp => JKFlipFlop:flipflop.JK[0]
+Cp => JKFlipFlop:flipflop1.JK[1]
+Cp => JKFlipFlop:flipflop1.JK[0]
+Cp => JKFlipFlop:flipflop2.JK[1]
+Cp => JKFlipFlop:flipflop2.JK[0]
+Cp => JKFlipFlop:flipflop3.JK[1]
+Cp => JKFlipFlop:flipflop3.JK[0]
+Cp => JKFlipFlop:flipflop4.JK[1]
+Cp => JKFlipFlop:flipflop4.JK[0]
+Clk => JKFlipFlop:flipflop.Clk
+Clr => JKFlipFlop:flipflop.ARST
+Clr => JKFlipFlop:flipflop1.ARST
+Clr => JKFlipFlop:flipflop2.ARST
+Clr => JKFlipFlop:flipflop3.ARST
+Clr => JKFlipFlop:flipflop4.ARST
+Ep => triStateBuffer:buffer1.Ep
+Sp => JKFlipFlop:flipflop.set
+Sp => JKFlipFlop:flipflop1.set
+Sp => JKFlipFlop:flipflop2.set
+Sp => JKFlipFlop:flipflop3.set
+Sp => JKFlipFlop:flipflop4.set
+input[0] => JKFlipFlop:flipflop.setInput
+input[1] => JKFlipFlop:flipflop1.setInput
+input[2] => JKFlipFlop:flipflop2.setInput
+input[3] => JKFlipFlop:flipflop3.setInput
+input[4] => JKFlipFlop:flipflop4.setInput
+output[0] <= triStateBuffer:buffer1.Dout[0]
+output[1] <= triStateBuffer:buffer1.Dout[1]
+output[2] <= triStateBuffer:buffer1.Dout[2]
+output[3] <= triStateBuffer:buffer1.Dout[3]
+output[4] <= triStateBuffer:buffer1.Dout[4]
+count[0] <= JKFlipFlop:flipflop.Q
+count[1] <= JKFlipFlop:flipflop1.Q
+count[2] <= JKFlipFlop:flipflop2.Q
+count[3] <= JKFlipFlop:flipflop3.Q
+count[4] <= JKFlipFlop:flipflop4.Q
+
+
+|Practica2|programCounter:progCnt|JKFlipFlop:flipflop
+JK[0] => Mux0.IN4
+JK[1] => Mux0.IN3
+Clk => sQ.CLK
+ARST => sQ.IN0
+setInput => sQ.ADATA
+set => sQ.ALOAD
+set => sQ.IN1
+Q <= sQ.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Practica2|programCounter:progCnt|JKFlipFlop:flipflop1
+JK[0] => Mux0.IN4
+JK[1] => Mux0.IN3
+Clk => sQ.CLK
+ARST => sQ.IN0
+setInput => sQ.ADATA
+set => sQ.ALOAD
+set => sQ.IN1
+Q <= sQ.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Practica2|programCounter:progCnt|JKFlipFlop:flipflop2
+JK[0] => Mux0.IN4
+JK[1] => Mux0.IN3
+Clk => sQ.CLK
+ARST => sQ.IN0
+setInput => sQ.ADATA
+set => sQ.ALOAD
+set => sQ.IN1
+Q <= sQ.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Practica2|programCounter:progCnt|JKFlipFlop:flipflop3
+JK[0] => Mux0.IN4
+JK[1] => Mux0.IN3
+Clk => sQ.CLK
+ARST => sQ.IN0
+setInput => sQ.ADATA
+set => sQ.ALOAD
+set => sQ.IN1
+Q <= sQ.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Practica2|programCounter:progCnt|JKFlipFlop:flipflop4
+JK[0] => Mux0.IN4
+JK[1] => Mux0.IN3
+Clk => sQ.CLK
+ARST => sQ.IN0
+setInput => sQ.ADATA
+set => sQ.ALOAD
+set => sQ.IN1
+Q <= sQ.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Practica2|programCounter:progCnt|triStateBuffer:buffer1
+Din[0] => Dout[0].DATAIN
+Din[1] => Dout[1].DATAIN
+Din[2] => Dout[2].DATAIN
+Din[3] => Dout[3].DATAIN
+Din[4] => Dout[4].DATAIN
+Ep => Dout[0].OE
+Ep => Dout[1].OE
+Ep => Dout[2].OE
+Ep => Dout[3].OE
+Ep => Dout[4].OE
+Dout[0] <= Dout[0].DB_MAX_OUTPUT_PORT_TYPE
+Dout[1] <= Dout[1].DB_MAX_OUTPUT_PORT_TYPE
+Dout[2] <= Dout[2].DB_MAX_OUTPUT_PORT_TYPE
+Dout[3] <= Dout[3].DB_MAX_OUTPUT_PORT_TYPE
+Dout[4] <= Dout[4].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Practica2|outputMUX:oMux
+progModeInput[0] => ledOutput.DATAB
+progModeInput[1] => ledOutput.DATAB
+progModeInput[2] => ledOutput.DATAB
+progModeInput[3] => ledOutput.DATAB
+progModeInput[4] => ledOutput.DATAB
+progModeInput[5] => ledOutput.DATAB
+progModeInput[6] => ledOutput.DATAB
+progModeInput[7] => ledOutput.DATAB
+progModeInput[8] => ledOutput.DATAB
+progModeInput[9] => ledOutput.DATAB
+progModeInput[10] => ledOutput.DATAB
+progModeInput[11] => ledOutput.DATAB
+progModeInput[12] => ledOutput.DATAB
+progModeInput[13] => ledOutput.DATAB
+progModeInput[14] => ledOutput.DATAB
+progModeInput[15] => ledOutput.DATAB
+runModeInput[0] => ledOutput.DATAA
+runModeInput[1] => ledOutput.DATAA
+runModeInput[2] => ledOutput.DATAA
+runModeInput[3] => ledOutput.DATAA
+runModeInput[4] => ledOutput.DATAA
+runModeInput[5] => ledOutput.DATAA
+runModeInput[6] => ledOutput.DATAA
+runModeInput[7] => ledOutput.DATAA
+runModeInput[8] => ledOutput.DATAA
+runModeInput[9] => ledOutput.DATAA
+runModeInput[10] => ledOutput.DATAA
+runModeInput[11] => ledOutput.DATAA
+runModeInput[12] => ledOutput.DATAA
+runModeInput[13] => ledOutput.DATAA
+runModeInput[14] => ledOutput.DATAA
+runModeInput[15] => ledOutput.DATAA
+ledOutput[0] <= ledOutput.DB_MAX_OUTPUT_PORT_TYPE
+ledOutput[1] <= ledOutput.DB_MAX_OUTPUT_PORT_TYPE
+ledOutput[2] <= ledOutput.DB_MAX_OUTPUT_PORT_TYPE
+ledOutput[3] <= ledOutput.DB_MAX_OUTPUT_PORT_TYPE
+ledOutput[4] <= ledOutput.DB_MAX_OUTPUT_PORT_TYPE
+ledOutput[5] <= ledOutput.DB_MAX_OUTPUT_PORT_TYPE
+ledOutput[6] <= ledOutput.DB_MAX_OUTPUT_PORT_TYPE
+ledOutput[7] <= ledOutput.DB_MAX_OUTPUT_PORT_TYPE
+ledOutput[8] <= ledOutput.DB_MAX_OUTPUT_PORT_TYPE
+ledOutput[9] <= ledOutput.DB_MAX_OUTPUT_PORT_TYPE
+ledOutput[10] <= ledOutput.DB_MAX_OUTPUT_PORT_TYPE
+ledOutput[11] <= ledOutput.DB_MAX_OUTPUT_PORT_TYPE
+ledOutput[12] <= ledOutput.DB_MAX_OUTPUT_PORT_TYPE
+ledOutput[13] <= ledOutput.DB_MAX_OUTPUT_PORT_TYPE
+ledOutput[14] <= ledOutput.DB_MAX_OUTPUT_PORT_TYPE
+ledOutput[15] <= ledOutput.DB_MAX_OUTPUT_PORT_TYPE
+modeSelect => ledOutput.OUTPUTSELECT
+modeSelect => ledOutput.OUTPUTSELECT
+modeSelect => ledOutput.OUTPUTSELECT
+modeSelect => ledOutput.OUTPUTSELECT
+modeSelect => ledOutput.OUTPUTSELECT
+modeSelect => ledOutput.OUTPUTSELECT
+modeSelect => ledOutput.OUTPUTSELECT
+modeSelect => ledOutput.OUTPUTSELECT
+modeSelect => ledOutput.OUTPUTSELECT
+modeSelect => ledOutput.OUTPUTSELECT
+modeSelect => ledOutput.OUTPUTSELECT
+modeSelect => ledOutput.OUTPUTSELECT
+modeSelect => ledOutput.OUTPUTSELECT
+modeSelect => ledOutput.OUTPUTSELECT
+modeSelect => ledOutput.OUTPUTSELECT
+modeSelect => ledOutput.OUTPUTSELECT
+
+
+|Practica2|binToBCD:bcd
+number[0] => ones[0].DATAIN
+number[1] => LessThan9.IN8
+number[1] => Add9.IN8
+number[1] => shift.DATAA
+number[2] => LessThan7.IN8
+number[2] => Add7.IN8
+number[2] => shift.DATAA
+number[3] => LessThan5.IN8
+number[3] => Add5.IN8
+number[3] => shift.DATAA
+number[4] => LessThan3.IN8
+number[4] => Add3.IN8
+number[4] => shift.DATAA
+number[5] => LessThan2.IN8
+number[5] => Add2.IN8
+number[5] => shift.DATAA
+number[6] => LessThan1.IN8
+number[6] => Add1.IN8
+number[6] => shift.DATAA
+number[7] => LessThan0.IN6
+number[7] => Add0.IN6
+number[7] => shift.DATAA
+number[8] => LessThan0.IN5
+number[8] => Add0.IN5
+number[8] => shift.DATAA
+number[9] => LessThan0.IN4
+number[9] => Add0.IN4
+number[9] => shift.DATAA
+hundreds[0] <= shift.DB_MAX_OUTPUT_PORT_TYPE
+hundreds[1] <= shift.DB_MAX_OUTPUT_PORT_TYPE
+hundreds[2] <= shift.DB_MAX_OUTPUT_PORT_TYPE
+hundreds[3] <= shift.DB_MAX_OUTPUT_PORT_TYPE
+tens[0] <= shift.DB_MAX_OUTPUT_PORT_TYPE
+tens[1] <= shift.DB_MAX_OUTPUT_PORT_TYPE
+tens[2] <= shift.DB_MAX_OUTPUT_PORT_TYPE
+tens[3] <= shift.DB_MAX_OUTPUT_PORT_TYPE
+ones[0] <= number[0].DB_MAX_OUTPUT_PORT_TYPE
+ones[1] <= shift.DB_MAX_OUTPUT_PORT_TYPE
+ones[2] <= shift.DB_MAX_OUTPUT_PORT_TYPE
+ones[3] <= shift.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Practica2|fourDigitDisplay:fourDigDis
+number[0] => sNum[0].DATAA
+number[1] => sNum[1].DATAA
+number[2] => sNum[2].DATAA
+number[3] => sNum[3].DATAA
+number[4] => sNum[4].DATAA
+number[5] => sNum[5].DATAA
+number[6] => sNum[6].DATAA
+number[7] => sNum[7].DATAA
+number[8] => sNum[8].DATAA
+number[9] => sNum[9].DATAA
+number[10] => sNum[10].DATAA
+number[11] => sNum[11].DATAA
+number[12] => sNum[12].DATAA
+number[13] => sNum[13].DATAA
+number[14] => sNum[14].DATAA
+number[15] => sNum[15].DATAA
+anode[0] <= fourDigitDriver:driver.anode[0]
+anode[1] <= fourDigitDriver:driver.anode[1]
+anode[2] <= fourDigitDriver:driver.anode[2]
+anode[3] <= fourDigitDriver:driver.anode[3]
+cathode[0] <= decoder:decode.cathode[0]
+cathode[1] <= decoder:decode.cathode[1]
+cathode[2] <= decoder:decode.cathode[2]
+cathode[3] <= decoder:decode.cathode[3]
+cathode[4] <= decoder:decode.cathode[4]
+cathode[5] <= decoder:decode.cathode[5]
+cathode[6] <= decoder:decode.cathode[6]
+cathode[7] <= decoder:decode.cathode[7]
+error => sNum[15].OUTPUTSELECT
+error => sNum[14].OUTPUTSELECT
+error => sNum[13].OUTPUTSELECT
+error => sNum[12].OUTPUTSELECT
+error => sNum[11].OUTPUTSELECT
+error => sNum[10].OUTPUTSELECT
+error => sNum[9].OUTPUTSELECT
+error => sNum[8].OUTPUTSELECT
+error => sNum[7].OUTPUTSELECT
+error => sNum[6].OUTPUTSELECT
+error => sNum[5].OUTPUTSELECT
+error => sNum[4].OUTPUTSELECT
+error => sNum[3].OUTPUTSELECT
+error => sNum[2].OUTPUTSELECT
+error => sNum[1].OUTPUTSELECT
+error => sNum[0].OUTPUTSELECT
+clk => fourDigitDriver:driver.inClk
+
+
+|Practica2|fourDigitDisplay:fourDigDis|fourDigitDriver:driver
+number[0] => digit.DATAB
+number[1] => digit.DATAB
+number[2] => digit.DATAB
+number[3] => digit.DATAB
+number[4] => digit.DATAB
+number[5] => digit.DATAB
+number[6] => digit.DATAB
+number[7] => digit.DATAB
+number[8] => digit.DATAB
+number[9] => digit.DATAB
+number[10] => digit.DATAB
+number[11] => digit.DATAB
+number[12] => digit.DATAB
+number[13] => digit.DATAB
+number[14] => digit.DATAB
+number[15] => digit.DATAB
+anode[0] <= anode[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+anode[1] <= anode[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+anode[2] <= anode[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+anode[3] <= anode[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+digit[0] <= digit[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+digit[1] <= digit[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+digit[2] <= digit[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+digit[3] <= digit[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+RST => clk.ACLR
+RST => \clock:count[0].ACLR
+RST => \clock:count[1].ACLR
+RST => \clock:count[2].ACLR
+RST => \clock:count[3].ACLR
+RST => \clock:count[4].ACLR
+RST => \clock:count[5].ACLR
+RST => \clock:count[6].ACLR
+RST => \clock:count[7].ACLR
+RST => \clock:count[8].ACLR
+RST => \clock:count[9].ACLR
+RST => \clock:count[10].ACLR
+RST => \clock:count[11].ACLR
+RST => \clock:count[12].ACLR
+RST => \clock:count[13].ACLR
+RST => \clock:count[14].ACLR
+RST => \clock:count[15].ACLR
+RST => \clock:count[16].ACLR
+RST => \clock:count[17].ACLR
+RST => \clock:count[18].ACLR
+RST => \clock:count[19].ACLR
+RST => \clock:count[20].ACLR
+RST => \clock:count[21].ACLR
+RST => \clock:count[22].ACLR
+RST => \clock:count[23].ACLR
+RST => \clock:count[24].ACLR
+RST => \clock:count[25].ACLR
+RST => \clock:count[26].ACLR
+RST => \clock:count[27].ACLR
+RST => \clock:count[28].ACLR
+RST => \clock:count[29].ACLR
+inClk => clk.CLK
+inClk => \clock:count[0].CLK
+inClk => \clock:count[1].CLK
+inClk => \clock:count[2].CLK
+inClk => \clock:count[3].CLK
+inClk => \clock:count[4].CLK
+inClk => \clock:count[5].CLK
+inClk => \clock:count[6].CLK
+inClk => \clock:count[7].CLK
+inClk => \clock:count[8].CLK
+inClk => \clock:count[9].CLK
+inClk => \clock:count[10].CLK
+inClk => \clock:count[11].CLK
+inClk => \clock:count[12].CLK
+inClk => \clock:count[13].CLK
+inClk => \clock:count[14].CLK
+inClk => \clock:count[15].CLK
+inClk => \clock:count[16].CLK
+inClk => \clock:count[17].CLK
+inClk => \clock:count[18].CLK
+inClk => \clock:count[19].CLK
+inClk => \clock:count[20].CLK
+inClk => \clock:count[21].CLK
+inClk => \clock:count[22].CLK
+inClk => \clock:count[23].CLK
+inClk => \clock:count[24].CLK
+inClk => \clock:count[25].CLK
+inClk => \clock:count[26].CLK
+inClk => \clock:count[27].CLK
+inClk => \clock:count[28].CLK
+inClk => \clock:count[29].CLK
+
+
+|Practica2|fourDigitDisplay:fourDigDis|decoder:decode
+inputNumber[0] => Mux0.IN19
+inputNumber[0] => Mux1.IN19
+inputNumber[0] => Mux2.IN19
+inputNumber[0] => Mux3.IN19
+inputNumber[0] => Mux4.IN19
+inputNumber[0] => Mux5.IN19
+inputNumber[0] => Mux6.IN19
+inputNumber[1] => Mux0.IN18
+inputNumber[1] => Mux1.IN18
+inputNumber[1] => Mux2.IN18
+inputNumber[1] => Mux3.IN18
+inputNumber[1] => Mux4.IN18
+inputNumber[1] => Mux5.IN18
+inputNumber[1] => Mux6.IN18
+inputNumber[2] => Mux0.IN17
+inputNumber[2] => Mux1.IN17
+inputNumber[2] => Mux2.IN17
+inputNumber[2] => Mux3.IN17
+inputNumber[2] => Mux4.IN17
+inputNumber[2] => Mux5.IN17
+inputNumber[2] => Mux6.IN17
+inputNumber[3] => Mux0.IN16
+inputNumber[3] => Mux1.IN16
+inputNumber[3] => Mux2.IN16
+inputNumber[3] => Mux3.IN16
+inputNumber[3] => Mux4.IN16
+inputNumber[3] => Mux5.IN16
+inputNumber[3] => Mux6.IN16
+cathode[0] <= Mux6.DB_MAX_OUTPUT_PORT_TYPE
+cathode[1] <= Mux5.DB_MAX_OUTPUT_PORT_TYPE
+cathode[2] <= Mux4.DB_MAX_OUTPUT_PORT_TYPE
+cathode[3] <= Mux3.DB_MAX_OUTPUT_PORT_TYPE
+cathode[4] <= Mux2.DB_MAX_OUTPUT_PORT_TYPE
+cathode[5] <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
+cathode[6] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+cathode[7] <= <VCC>
+
+
+|Practica2|clockDivider:clock1
+inputClk => sInputClk.CLK
+inputClk => sStop.CLK
+inputClk => count[0].CLK
+inputClk => count[1].CLK
+inputClk => count[2].CLK
+inputClk => count[3].CLK
+inputClk => count[4].CLK
+inputClk => count[5].CLK
+inputClk => count[6].CLK
+inputClk => count[7].CLK
+inputClk => count[8].CLK
+inputClk => count[9].CLK
+inputClk => count[10].CLK
+inputClk => count[11].CLK
+inputClk => count[12].CLK
+inputClk => count[13].CLK
+inputClk => count[14].CLK
+inputClk => count[15].CLK
+inputClk => count[16].CLK
+inputClk => count[17].CLK
+inputClk => count[18].CLK
+inputClk => count[19].CLK
+inputClk => count[20].CLK
+inputClk => count[21].CLK
+inputClk => count[22].CLK
+inputClk => count[23].CLK
+inputClk => count[24].CLK
+inputClk => count[25].CLK
+inputClk => count[26].CLK
+inputClk => count[27].CLK
+inputClk => count[28].CLK
+inputClk => count[29].CLK
+inputClk => count[30].CLK
+inputClk => count[31].CLK
+stop[0] => clockDivider2Hz.IN0
+stop[1] => clockDivider2Hz.IN1
+stop[2] => clockDivider2Hz.IN1
+stop[3] => clockDivider2Hz.IN1
+stop[4] => clockDivider2Hz.IN1
+outputClk <= outputClk.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Practica2|fiveBitDRegister:marLatch
+Dbus[0] => oneBitDRegister:bit0.Din
+Dbus[1] => oneBitDRegister:bit1.Din
+Dbus[2] => oneBitDRegister:bit2.Din
+Dbus[3] => oneBitDRegister:bit3.Din
+Dbus[4] => oneBitDRegister:bit4.Din
+Clk => oneBitDRegister:bit0.Clk
+Clk => oneBitDRegister:bit1.Clk
+Clk => oneBitDRegister:bit2.Clk
+Clk => oneBitDRegister:bit3.Clk
+Clk => oneBitDRegister:bit4.Clk
+ARST => oneBitDRegister:bit0.ARST
+ARST => oneBitDRegister:bit1.ARST
+ARST => oneBitDRegister:bit2.ARST
+ARST => oneBitDRegister:bit3.ARST
+ARST => oneBitDRegister:bit4.ARST
+outputEnable => oneBitDRegister:bit0.outputEnable
+outputEnable => oneBitDRegister:bit1.outputEnable
+outputEnable => oneBitDRegister:bit2.outputEnable
+outputEnable => oneBitDRegister:bit3.outputEnable
+outputEnable => oneBitDRegister:bit4.outputEnable
+readIn => oneBitDRegister:bit0.readIn
+readIn => oneBitDRegister:bit1.readIn
+readIn => oneBitDRegister:bit2.readIn
+readIn => oneBitDRegister:bit3.readIn
+readIn => oneBitDRegister:bit4.readIn
+Qbus[0] <= oneBitDRegister:bit0.Q
+Qbus[1] <= oneBitDRegister:bit1.Q
+Qbus[2] <= oneBitDRegister:bit2.Q
+Qbus[3] <= oneBitDRegister:bit3.Q
+Qbus[4] <= oneBitDRegister:bit4.Q
+
+
+|Practica2|fiveBitDRegister:marLatch|oneBitDRegister:bit0
+Din => sQ.DATAIN
+Clk => sQ.CLK
+ARST => sQ.ACLR
+ARST => Q.IN0
+outputEnable => Q.IN1
+readIn => sQ.ENA
+Q <= Q.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Practica2|fiveBitDRegister:marLatch|oneBitDRegister:bit1
+Din => sQ.DATAIN
+Clk => sQ.CLK
+ARST => sQ.ACLR
+ARST => Q.IN0
+outputEnable => Q.IN1
+readIn => sQ.ENA
+Q <= Q.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Practica2|fiveBitDRegister:marLatch|oneBitDRegister:bit2
+Din => sQ.DATAIN
+Clk => sQ.CLK
+ARST => sQ.ACLR
+ARST => Q.IN0
+outputEnable => Q.IN1
+readIn => sQ.ENA
+Q <= Q.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Practica2|fiveBitDRegister:marLatch|oneBitDRegister:bit3
+Din => sQ.DATAIN
+Clk => sQ.CLK
+ARST => sQ.ACLR
+ARST => Q.IN0
+outputEnable => Q.IN1
+readIn => sQ.ENA
+Q <= Q.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Practica2|fiveBitDRegister:marLatch|oneBitDRegister:bit4
+Din => sQ.DATAIN
+Clk => sQ.CLK
+ARST => sQ.ACLR
+ARST => Q.IN0
+outputEnable => Q.IN1
+readIn => sQ.ENA
+Q <= Q.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Practica2|inputMUX:inpMux
+address[0] => output.DATAB
+address[1] => output.DATAB
+address[2] => output.DATAB
+address[3] => output.DATAB
+address[4] => output.DATAB
+MAR[0] => output.DATAA
+MAR[1] => output.DATAA
+MAR[2] => output.DATAA
+MAR[3] => output.DATAA
+MAR[4] => output.DATAA
+program => output.OUTPUTSELECT
+program => output.OUTPUTSELECT
+program => output.OUTPUTSELECT
+program => output.OUTPUTSELECT
+program => output.OUTPUTSELECT
+output[0] <= output.DB_MAX_OUTPUT_PORT_TYPE
+output[1] <= output.DB_MAX_OUTPUT_PORT_TYPE
+output[2] <= output.DB_MAX_OUTPUT_PORT_TYPE
+output[3] <= output.DB_MAX_OUTPUT_PORT_TYPE
+output[4] <= output.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Practica2|ramModule:RAM
+inputData[0] => Memory~14.DATAIN
+inputData[0] => Memory.DATAIN
+inputData[1] => Memory~13.DATAIN
+inputData[1] => Memory.DATAIN1
+inputData[2] => Memory~12.DATAIN
+inputData[2] => Memory.DATAIN2
+inputData[3] => Memory~11.DATAIN
+inputData[3] => Memory.DATAIN3
+inputData[4] => Memory~10.DATAIN
+inputData[4] => Memory.DATAIN4
+inputData[5] => Memory~9.DATAIN
+inputData[5] => Memory.DATAIN5
+inputData[6] => Memory~8.DATAIN
+inputData[6] => Memory.DATAIN6
+inputData[7] => Memory~7.DATAIN
+inputData[7] => Memory.DATAIN7
+inputData[8] => Memory~6.DATAIN
+inputData[8] => Memory.DATAIN8
+inputData[9] => Memory~5.DATAIN
+inputData[9] => Memory.DATAIN9
+inputAddress[0] => Memory~4.DATAIN
+inputAddress[0] => outputAddress[0]~reg0.DATAIN
+inputAddress[0] => Memory.WADDR
+inputAddress[0] => Memory.RADDR
+inputAddress[0] => Memory.PORTBRADDR
+inputAddress[1] => Memory~3.DATAIN
+inputAddress[1] => outputAddress[1]~reg0.DATAIN
+inputAddress[1] => Memory.WADDR1
+inputAddress[1] => Memory.RADDR1
+inputAddress[1] => Memory.PORTBRADDR1
+inputAddress[2] => Memory~2.DATAIN
+inputAddress[2] => outputAddress[2]~reg0.DATAIN
+inputAddress[2] => Memory.WADDR2
+inputAddress[2] => Memory.RADDR2
+inputAddress[2] => Memory.PORTBRADDR2
+inputAddress[3] => Memory~1.DATAIN
+inputAddress[3] => outputAddress[3]~reg0.DATAIN
+inputAddress[3] => Memory.WADDR3
+inputAddress[3] => Memory.RADDR3
+inputAddress[3] => Memory.PORTBRADDR3
+inputAddress[4] => Memory~0.DATAIN
+inputAddress[4] => outputAddress[4]~reg0.DATAIN
+inputAddress[4] => Memory.WADDR4
+inputAddress[4] => Memory.RADDR4
+inputAddress[4] => Memory.PORTBRADDR4
+program => process_0.IN0
+Clk => Memory~15.CLK
+Clk => Memory~0.CLK
+Clk => Memory~1.CLK
+Clk => Memory~2.CLK
+Clk => Memory~3.CLK
+Clk => Memory~4.CLK
+Clk => Memory~5.CLK
+Clk => Memory~6.CLK
+Clk => Memory~7.CLK
+Clk => Memory~8.CLK
+Clk => Memory~9.CLK
+Clk => Memory~10.CLK
+Clk => Memory~11.CLK
+Clk => Memory~12.CLK
+Clk => Memory~13.CLK
+Clk => Memory~14.CLK
+Clk => outputAddress[0]~reg0.CLK
+Clk => outputAddress[1]~reg0.CLK
+Clk => outputAddress[2]~reg0.CLK
+Clk => outputAddress[3]~reg0.CLK
+Clk => outputAddress[4]~reg0.CLK
+Clk => outputData[0]~reg0.CLK
+Clk => outputData[1]~reg0.CLK
+Clk => outputData[2]~reg0.CLK
+Clk => outputData[3]~reg0.CLK
+Clk => outputData[4]~reg0.CLK
+Clk => outputData[5]~reg0.CLK
+Clk => outputData[6]~reg0.CLK
+Clk => outputData[7]~reg0.CLK
+Clk => outputData[8]~reg0.CLK
+Clk => outputData[9]~reg0.CLK
+Clk => Memory.CLK0
+move => process_0.IN1
+readWrite => process_1.IN0
+readWrite => Memory.OUTPUTSELECT
+readWrite => outputAddress[0]~reg0.ENA
+readWrite => outputAddress[1]~reg0.ENA
+readWrite => outputAddress[2]~reg0.ENA
+readWrite => outputAddress[3]~reg0.ENA
+readWrite => outputAddress[4]~reg0.ENA
+readWrite => outputData[0]~reg0.ENA
+readWrite => outputData[1]~reg0.ENA
+readWrite => outputData[2]~reg0.ENA
+readWrite => outputData[3]~reg0.ENA
+readWrite => outputData[4]~reg0.ENA
+readWrite => outputData[5]~reg0.ENA
+readWrite => outputData[6]~reg0.ENA
+readWrite => outputData[7]~reg0.ENA
+readWrite => outputData[8]~reg0.ENA
+readWrite => outputData[9]~reg0.ENA
+notCE => process_1.IN1
+outputDataToBus[0] <= outputDataToBus[0].DB_MAX_OUTPUT_PORT_TYPE
+outputDataToBus[1] <= outputDataToBus[1].DB_MAX_OUTPUT_PORT_TYPE
+outputDataToBus[2] <= outputDataToBus[2].DB_MAX_OUTPUT_PORT_TYPE
+outputDataToBus[3] <= outputDataToBus[3].DB_MAX_OUTPUT_PORT_TYPE
+outputDataToBus[4] <= outputDataToBus[4].DB_MAX_OUTPUT_PORT_TYPE
+outputDataToBus[5] <= outputDataToBus[5].DB_MAX_OUTPUT_PORT_TYPE
+outputDataToBus[6] <= outputDataToBus[6].DB_MAX_OUTPUT_PORT_TYPE
+outputDataToBus[7] <= outputDataToBus[7].DB_MAX_OUTPUT_PORT_TYPE
+outputDataToBus[8] <= outputDataToBus[8].DB_MAX_OUTPUT_PORT_TYPE
+outputDataToBus[9] <= outputDataToBus[9].DB_MAX_OUTPUT_PORT_TYPE
+outputData[0] <= outputData[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+outputData[1] <= outputData[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+outputData[2] <= outputData[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+outputData[3] <= outputData[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+outputData[4] <= outputData[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+outputData[5] <= outputData[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+outputData[6] <= outputData[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+outputData[7] <= outputData[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+outputData[8] <= outputData[8]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+outputData[9] <= outputData[9]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+outputAddress[0] <= outputAddress[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+outputAddress[1] <= outputAddress[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+outputAddress[2] <= outputAddress[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+outputAddress[3] <= outputAddress[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+outputAddress[4] <= outputAddress[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Practica2|fiveBitDRegister:addrReg
+Dbus[0] => oneBitDRegister:bit0.Din
+Dbus[1] => oneBitDRegister:bit1.Din
+Dbus[2] => oneBitDRegister:bit2.Din
+Dbus[3] => oneBitDRegister:bit3.Din
+Dbus[4] => oneBitDRegister:bit4.Din
+Clk => oneBitDRegister:bit0.Clk
+Clk => oneBitDRegister:bit1.Clk
+Clk => oneBitDRegister:bit2.Clk
+Clk => oneBitDRegister:bit3.Clk
+Clk => oneBitDRegister:bit4.Clk
+ARST => oneBitDRegister:bit0.ARST
+ARST => oneBitDRegister:bit1.ARST
+ARST => oneBitDRegister:bit2.ARST
+ARST => oneBitDRegister:bit3.ARST
+ARST => oneBitDRegister:bit4.ARST
+outputEnable => oneBitDRegister:bit0.outputEnable
+outputEnable => oneBitDRegister:bit1.outputEnable
+outputEnable => oneBitDRegister:bit2.outputEnable
+outputEnable => oneBitDRegister:bit3.outputEnable
+outputEnable => oneBitDRegister:bit4.outputEnable
+readIn => oneBitDRegister:bit0.readIn
+readIn => oneBitDRegister:bit1.readIn
+readIn => oneBitDRegister:bit2.readIn
+readIn => oneBitDRegister:bit3.readIn
+readIn => oneBitDRegister:bit4.readIn
+Qbus[0] <= oneBitDRegister:bit0.Q
+Qbus[1] <= oneBitDRegister:bit1.Q
+Qbus[2] <= oneBitDRegister:bit2.Q
+Qbus[3] <= oneBitDRegister:bit3.Q
+Qbus[4] <= oneBitDRegister:bit4.Q
+
+
+|Practica2|fiveBitDRegister:addrReg|oneBitDRegister:bit0
+Din => sQ.DATAIN
+Clk => sQ.CLK
+ARST => sQ.ACLR
+ARST => Q.IN0
+outputEnable => Q.IN1
+readIn => sQ.ENA
+Q <= Q.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Practica2|fiveBitDRegister:addrReg|oneBitDRegister:bit1
+Din => sQ.DATAIN
+Clk => sQ.CLK
+ARST => sQ.ACLR
+ARST => Q.IN0
+outputEnable => Q.IN1
+readIn => sQ.ENA
+Q <= Q.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Practica2|fiveBitDRegister:addrReg|oneBitDRegister:bit2
+Din => sQ.DATAIN
+Clk => sQ.CLK
+ARST => sQ.ACLR
+ARST => Q.IN0
+outputEnable => Q.IN1
+readIn => sQ.ENA
+Q <= Q.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Practica2|fiveBitDRegister:addrReg|oneBitDRegister:bit3
+Din => sQ.DATAIN
+Clk => sQ.CLK
+ARST => sQ.ACLR
+ARST => Q.IN0
+outputEnable => Q.IN1
+readIn => sQ.ENA
+Q <= Q.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Practica2|fiveBitDRegister:addrReg|oneBitDRegister:bit4
+Din => sQ.DATAIN
+Clk => sQ.CLK
+ARST => sQ.ACLR
+ARST => Q.IN0
+outputEnable => Q.IN1
+readIn => sQ.ENA
+Q <= Q.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Practica2|fiveBitDRegister:conReg
+Dbus[0] => oneBitDRegister:bit0.Din
+Dbus[1] => oneBitDRegister:bit1.Din
+Dbus[2] => oneBitDRegister:bit2.Din
+Dbus[3] => oneBitDRegister:bit3.Din
+Dbus[4] => oneBitDRegister:bit4.Din
+Clk => oneBitDRegister:bit0.Clk
+Clk => oneBitDRegister:bit1.Clk
+Clk => oneBitDRegister:bit2.Clk
+Clk => oneBitDRegister:bit3.Clk
+Clk => oneBitDRegister:bit4.Clk
+ARST => oneBitDRegister:bit0.ARST
+ARST => oneBitDRegister:bit1.ARST
+ARST => oneBitDRegister:bit2.ARST
+ARST => oneBitDRegister:bit3.ARST
+ARST => oneBitDRegister:bit4.ARST
+outputEnable => oneBitDRegister:bit0.outputEnable
+outputEnable => oneBitDRegister:bit1.outputEnable
+outputEnable => oneBitDRegister:bit2.outputEnable
+outputEnable => oneBitDRegister:bit3.outputEnable
+outputEnable => oneBitDRegister:bit4.outputEnable
+readIn => oneBitDRegister:bit0.readIn
+readIn => oneBitDRegister:bit1.readIn
+readIn => oneBitDRegister:bit2.readIn
+readIn => oneBitDRegister:bit3.readIn
+readIn => oneBitDRegister:bit4.readIn
+Qbus[0] <= oneBitDRegister:bit0.Q
+Qbus[1] <= oneBitDRegister:bit1.Q
+Qbus[2] <= oneBitDRegister:bit2.Q
+Qbus[3] <= oneBitDRegister:bit3.Q
+Qbus[4] <= oneBitDRegister:bit4.Q
+
+
+|Practica2|fiveBitDRegister:conReg|oneBitDRegister:bit0
+Din => sQ.DATAIN
+Clk => sQ.CLK
+ARST => sQ.ACLR
+ARST => Q.IN0
+outputEnable => Q.IN1
+readIn => sQ.ENA
+Q <= Q.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Practica2|fiveBitDRegister:conReg|oneBitDRegister:bit1
+Din => sQ.DATAIN
+Clk => sQ.CLK
+ARST => sQ.ACLR
+ARST => Q.IN0
+outputEnable => Q.IN1
+readIn => sQ.ENA
+Q <= Q.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Practica2|fiveBitDRegister:conReg|oneBitDRegister:bit2
+Din => sQ.DATAIN
+Clk => sQ.CLK
+ARST => sQ.ACLR
+ARST => Q.IN0
+outputEnable => Q.IN1
+readIn => sQ.ENA
+Q <= Q.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Practica2|fiveBitDRegister:conReg|oneBitDRegister:bit3
+Din => sQ.DATAIN
+Clk => sQ.CLK
+ARST => sQ.ACLR
+ARST => Q.IN0
+outputEnable => Q.IN1
+readIn => sQ.ENA
+Q <= Q.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Practica2|fiveBitDRegister:conReg|oneBitDRegister:bit4
+Din => sQ.DATAIN
+Clk => sQ.CLK
+ARST => sQ.ACLR
+ARST => Q.IN0
+outputEnable => Q.IN1
+readIn => sQ.ENA
+Q <= Q.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Practica2|addressROM:aRom
+opCode[0] => Mux0.IN36
+opCode[0] => Mux1.IN36
+opCode[0] => Mux2.IN36
+opCode[0] => Mux3.IN36
+opCode[0] => Mux4.IN36
+opCode[1] => Mux0.IN35
+opCode[1] => Mux1.IN35
+opCode[1] => Mux2.IN35
+opCode[1] => Mux3.IN35
+opCode[1] => Mux4.IN35
+opCode[2] => Mux0.IN34
+opCode[2] => Mux1.IN34
+opCode[2] => Mux2.IN34
+opCode[2] => Mux3.IN34
+opCode[2] => Mux4.IN34
+opCode[3] => Mux0.IN33
+opCode[3] => Mux1.IN33
+opCode[3] => Mux2.IN33
+opCode[3] => Mux3.IN33
+opCode[3] => Mux4.IN33
+opCode[4] => Mux0.IN32
+opCode[4] => Mux1.IN32
+opCode[4] => Mux2.IN32
+opCode[4] => Mux3.IN32
+opCode[4] => Mux4.IN32
+opCodeStart[0] <= Mux4.DB_MAX_OUTPUT_PORT_TYPE
+opCodeStart[1] <= Mux3.DB_MAX_OUTPUT_PORT_TYPE
+opCodeStart[2] <= Mux2.DB_MAX_OUTPUT_PORT_TYPE
+opCodeStart[3] <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
+opCodeStart[4] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Practica2|ringCounter:ringCnt
+reset => process_0.IN0
+NOP => process_0.IN1
+Clk => Count[0]~reg0.CLK
+Clk => Count[1]~reg0.CLK
+Clk => Count[2]~reg0.CLK
+Clk => Count[3]~reg0.CLK
+Clk => Count[4]~reg0.CLK
+Clk => Count[5]~reg0.CLK
+Clk => tmpCount[0].CLK
+Clk => tmpCount[1].CLK
+Clk => tmpCount[2].CLK
+Clk => tmpCount[3].CLK
+Clk => tmpCount[4].CLK
+Clk => tmpCount[5].CLK
+Clk => tmpCount[6].CLK
+Clk => tmpCount[7].CLK
+Clk => tmpCount[8].CLK
+Clk => tmpCount[9].CLK
+Clk => tmpCount[10].CLK
+Clk => tmpCount[11].CLK
+Clk => tmpCount[12].CLK
+Clk => tmpCount[13].CLK
+Clk => tmpCount[14].CLK
+Clk => tmpCount[15].CLK
+Clk => tmpCount[16].CLK
+Clk => tmpCount[17].CLK
+Clk => tmpCount[18].CLK
+Clk => tmpCount[19].CLK
+Clk => tmpCount[20].CLK
+Clk => tmpCount[21].CLK
+Clk => tmpCount[22].CLK
+Clk => tmpCount[23].CLK
+Clk => tmpCount[24].CLK
+Clk => tmpCount[25].CLK
+Clk => tmpCount[26].CLK
+Clk => tmpCount[27].CLK
+Clk => tmpCount[28].CLK
+Clk => tmpCount[29].CLK
+Clk => tmpCount[30].CLK
+Clk => tmpCount[31].CLK
+Count[0] <= Count[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Count[1] <= Count[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Count[2] <= Count[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Count[3] <= Count[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Count[4] <= Count[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Count[5] <= Count[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Practica2|preCounter:preCnt
+Clr => sClr.IN0
+T1 => sClr.IN1
+T3 => num.OUTPUTSELECT
+T3 => num.OUTPUTSELECT
+T3 => num.OUTPUTSELECT
+T3 => num.OUTPUTSELECT
+T3 => num.OUTPUTSELECT
+Clk => controlWordLocation[0]~reg0.CLK
+Clk => controlWordLocation[1]~reg0.CLK
+Clk => controlWordLocation[2]~reg0.CLK
+Clk => controlWordLocation[3]~reg0.CLK
+Clk => controlWordLocation[4]~reg0.CLK
+Clk => num[0].CLK
+Clk => num[1].CLK
+Clk => num[2].CLK
+Clk => num[3].CLK
+Clk => num[4].CLK
+opCodeStart[0] => Add1.IN10
+opCodeStart[1] => Add1.IN9
+opCodeStart[2] => Add1.IN8
+opCodeStart[3] => Add1.IN7
+opCodeStart[4] => Add1.IN6
+controlWordLocation[0] <= controlWordLocation[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+controlWordLocation[1] <= controlWordLocation[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+controlWordLocation[2] <= controlWordLocation[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+controlWordLocation[3] <= controlWordLocation[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+controlWordLocation[4] <= controlWordLocation[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Practica2|controlROM:cRom
+controlWordLocation[0] => Mux0.IN36
+controlWordLocation[0] => Mux1.IN36
+controlWordLocation[0] => Mux2.IN36
+controlWordLocation[0] => Mux3.IN36
+controlWordLocation[0] => Mux4.IN36
+controlWordLocation[0] => Mux5.IN36
+controlWordLocation[0] => Mux6.IN36
+controlWordLocation[0] => Mux7.IN36
+controlWordLocation[0] => Mux8.IN36
+controlWordLocation[0] => Mux9.IN36
+controlWordLocation[0] => Mux10.IN36
+controlWordLocation[0] => Mux11.IN36
+controlWordLocation[0] => Mux12.IN36
+controlWordLocation[0] => Mux13.IN36
+controlWordLocation[0] => Mux14.IN36
+controlWordLocation[0] => Mux15.IN36
+controlWordLocation[0] => Mux16.IN36
+controlWordLocation[0] => Mux17.IN36
+controlWordLocation[0] => Mux18.IN36
+controlWordLocation[0] => Mux19.IN36
+controlWordLocation[1] => Mux0.IN35
+controlWordLocation[1] => Mux1.IN35
+controlWordLocation[1] => Mux2.IN35
+controlWordLocation[1] => Mux3.IN35
+controlWordLocation[1] => Mux4.IN35
+controlWordLocation[1] => Mux5.IN35
+controlWordLocation[1] => Mux6.IN35
+controlWordLocation[1] => Mux7.IN35
+controlWordLocation[1] => Mux8.IN35
+controlWordLocation[1] => Mux9.IN35
+controlWordLocation[1] => Mux10.IN35
+controlWordLocation[1] => Mux11.IN35
+controlWordLocation[1] => Mux12.IN35
+controlWordLocation[1] => Mux13.IN35
+controlWordLocation[1] => Mux14.IN35
+controlWordLocation[1] => Mux15.IN35
+controlWordLocation[1] => Mux16.IN35
+controlWordLocation[1] => Mux17.IN35
+controlWordLocation[1] => Mux18.IN35
+controlWordLocation[1] => Mux19.IN35
+controlWordLocation[2] => Mux0.IN34
+controlWordLocation[2] => Mux1.IN34
+controlWordLocation[2] => Mux2.IN34
+controlWordLocation[2] => Mux3.IN34
+controlWordLocation[2] => Mux4.IN34
+controlWordLocation[2] => Mux5.IN34
+controlWordLocation[2] => Mux6.IN34
+controlWordLocation[2] => Mux7.IN34
+controlWordLocation[2] => Mux8.IN34
+controlWordLocation[2] => Mux9.IN34
+controlWordLocation[2] => Mux10.IN34
+controlWordLocation[2] => Mux11.IN34
+controlWordLocation[2] => Mux12.IN34
+controlWordLocation[2] => Mux13.IN34
+controlWordLocation[2] => Mux14.IN34
+controlWordLocation[2] => Mux15.IN34
+controlWordLocation[2] => Mux16.IN34
+controlWordLocation[2] => Mux17.IN34
+controlWordLocation[2] => Mux18.IN34
+controlWordLocation[2] => Mux19.IN34
+controlWordLocation[3] => Mux0.IN33
+controlWordLocation[3] => Mux1.IN33
+controlWordLocation[3] => Mux2.IN33
+controlWordLocation[3] => Mux3.IN33
+controlWordLocation[3] => Mux4.IN33
+controlWordLocation[3] => Mux5.IN33
+controlWordLocation[3] => Mux6.IN33
+controlWordLocation[3] => Mux7.IN33
+controlWordLocation[3] => Mux8.IN33
+controlWordLocation[3] => Mux9.IN33
+controlWordLocation[3] => Mux10.IN33
+controlWordLocation[3] => Mux11.IN33
+controlWordLocation[3] => Mux12.IN33
+controlWordLocation[3] => Mux13.IN33
+controlWordLocation[3] => Mux14.IN33
+controlWordLocation[3] => Mux15.IN33
+controlWordLocation[3] => Mux16.IN33
+controlWordLocation[3] => Mux17.IN33
+controlWordLocation[3] => Mux18.IN33
+controlWordLocation[3] => Mux19.IN33
+controlWordLocation[4] => Mux0.IN32
+controlWordLocation[4] => Mux1.IN32
+controlWordLocation[4] => Mux2.IN32
+controlWordLocation[4] => Mux3.IN32
+controlWordLocation[4] => Mux4.IN32
+controlWordLocation[4] => Mux5.IN32
+controlWordLocation[4] => Mux6.IN32
+controlWordLocation[4] => Mux7.IN32
+controlWordLocation[4] => Mux8.IN32
+controlWordLocation[4] => Mux9.IN32
+controlWordLocation[4] => Mux10.IN32
+controlWordLocation[4] => Mux11.IN32
+controlWordLocation[4] => Mux12.IN32
+controlWordLocation[4] => Mux13.IN32
+controlWordLocation[4] => Mux14.IN32
+controlWordLocation[4] => Mux15.IN32
+controlWordLocation[4] => Mux16.IN32
+controlWordLocation[4] => Mux17.IN32
+controlWordLocation[4] => Mux18.IN32
+controlWordLocation[4] => Mux19.IN32
+controlWord[0] <= Mux19.DB_MAX_OUTPUT_PORT_TYPE
+controlWord[1] <= Mux18.DB_MAX_OUTPUT_PORT_TYPE
+controlWord[2] <= Mux17.DB_MAX_OUTPUT_PORT_TYPE
+controlWord[3] <= Mux16.DB_MAX_OUTPUT_PORT_TYPE
+controlWord[4] <= Mux15.DB_MAX_OUTPUT_PORT_TYPE
+controlWord[5] <= Mux14.DB_MAX_OUTPUT_PORT_TYPE
+controlWord[6] <= Mux13.DB_MAX_OUTPUT_PORT_TYPE
+controlWord[7] <= Mux12.DB_MAX_OUTPUT_PORT_TYPE
+controlWord[8] <= Mux11.DB_MAX_OUTPUT_PORT_TYPE
+controlWord[9] <= Mux10.DB_MAX_OUTPUT_PORT_TYPE
+controlWord[10] <= Mux9.DB_MAX_OUTPUT_PORT_TYPE
+controlWord[11] <= Mux8.DB_MAX_OUTPUT_PORT_TYPE
+controlWord[12] <= Mux7.DB_MAX_OUTPUT_PORT_TYPE
+controlWord[13] <= Mux6.DB_MAX_OUTPUT_PORT_TYPE
+controlWord[14] <= Mux5.DB_MAX_OUTPUT_PORT_TYPE
+controlWord[15] <= Mux4.DB_MAX_OUTPUT_PORT_TYPE
+controlWord[16] <= Mux3.DB_MAX_OUTPUT_PORT_TYPE
+controlWord[17] <= Mux2.DB_MAX_OUTPUT_PORT_TYPE
+controlWord[18] <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
+controlWord[19] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+NOP <= Equal0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Practica2|tenBitDRegister:aReg
+Dbus[0] => oneBitDRegister:bit0.Din
+Dbus[1] => oneBitDRegister:bit1.Din
+Dbus[2] => oneBitDRegister:bit2.Din
+Dbus[3] => oneBitDRegister:bit3.Din
+Dbus[4] => oneBitDRegister:bit4.Din
+Dbus[5] => oneBitDRegister:bit5.Din
+Dbus[6] => oneBitDRegister:bit6.Din
+Dbus[7] => oneBitDRegister:bit7.Din
+Dbus[8] => oneBitDRegister:bit8.Din
+Dbus[9] => oneBitDRegister:bit9.Din
+Clk => oneBitDRegister:bit0.Clk
+Clk => oneBitDRegister:bit1.Clk
+Clk => oneBitDRegister:bit2.Clk
+Clk => oneBitDRegister:bit3.Clk
+Clk => oneBitDRegister:bit4.Clk
+Clk => oneBitDRegister:bit5.Clk
+Clk => oneBitDRegister:bit6.Clk
+Clk => oneBitDRegister:bit7.Clk
+Clk => oneBitDRegister:bit8.Clk
+Clk => oneBitDRegister:bit9.Clk
+ARST => oneBitDRegister:bit0.ARST
+ARST => oneBitDRegister:bit1.ARST
+ARST => oneBitDRegister:bit2.ARST
+ARST => oneBitDRegister:bit3.ARST
+ARST => oneBitDRegister:bit4.ARST
+ARST => oneBitDRegister:bit5.ARST
+ARST => oneBitDRegister:bit6.ARST
+ARST => oneBitDRegister:bit7.ARST
+ARST => oneBitDRegister:bit8.ARST
+ARST => oneBitDRegister:bit9.ARST
+outputEnable => oneBitDRegister:bit0.outputEnable
+outputEnable => oneBitDRegister:bit1.outputEnable
+outputEnable => oneBitDRegister:bit2.outputEnable
+outputEnable => oneBitDRegister:bit3.outputEnable
+outputEnable => oneBitDRegister:bit4.outputEnable
+outputEnable => oneBitDRegister:bit5.outputEnable
+outputEnable => oneBitDRegister:bit6.outputEnable
+outputEnable => oneBitDRegister:bit7.outputEnable
+outputEnable => oneBitDRegister:bit8.outputEnable
+outputEnable => oneBitDRegister:bit9.outputEnable
+readIn => oneBitDRegister:bit0.readIn
+readIn => oneBitDRegister:bit1.readIn
+readIn => oneBitDRegister:bit2.readIn
+readIn => oneBitDRegister:bit3.readIn
+readIn => oneBitDRegister:bit4.readIn
+readIn => oneBitDRegister:bit5.readIn
+readIn => oneBitDRegister:bit6.readIn
+readIn => oneBitDRegister:bit7.readIn
+readIn => oneBitDRegister:bit8.readIn
+readIn => oneBitDRegister:bit9.readIn
+Qbus[0] <= oneBitDRegister:bit0.Q
+Qbus[1] <= oneBitDRegister:bit1.Q
+Qbus[2] <= oneBitDRegister:bit2.Q
+Qbus[3] <= oneBitDRegister:bit3.Q
+Qbus[4] <= oneBitDRegister:bit4.Q
+Qbus[5] <= oneBitDRegister:bit5.Q
+Qbus[6] <= oneBitDRegister:bit6.Q
+Qbus[7] <= oneBitDRegister:bit7.Q
+Qbus[8] <= oneBitDRegister:bit8.Q
+Qbus[9] <= oneBitDRegister:bit9.Q
+
+
+|Practica2|tenBitDRegister:aReg|oneBitDRegister:bit0
+Din => sQ.DATAIN
+Clk => sQ.CLK
+ARST => sQ.ACLR
+ARST => Q.IN0
+outputEnable => Q.IN1
+readIn => sQ.ENA
+Q <= Q.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Practica2|tenBitDRegister:aReg|oneBitDRegister:bit1
+Din => sQ.DATAIN
+Clk => sQ.CLK
+ARST => sQ.ACLR
+ARST => Q.IN0
+outputEnable => Q.IN1
+readIn => sQ.ENA
+Q <= Q.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Practica2|tenBitDRegister:aReg|oneBitDRegister:bit2
+Din => sQ.DATAIN
+Clk => sQ.CLK
+ARST => sQ.ACLR
+ARST => Q.IN0
+outputEnable => Q.IN1
+readIn => sQ.ENA
+Q <= Q.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Practica2|tenBitDRegister:aReg|oneBitDRegister:bit3
+Din => sQ.DATAIN
+Clk => sQ.CLK
+ARST => sQ.ACLR
+ARST => Q.IN0
+outputEnable => Q.IN1
+readIn => sQ.ENA
+Q <= Q.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Practica2|tenBitDRegister:aReg|oneBitDRegister:bit4
+Din => sQ.DATAIN
+Clk => sQ.CLK
+ARST => sQ.ACLR
+ARST => Q.IN0
+outputEnable => Q.IN1
+readIn => sQ.ENA
+Q <= Q.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Practica2|tenBitDRegister:aReg|oneBitDRegister:bit5
+Din => sQ.DATAIN
+Clk => sQ.CLK
+ARST => sQ.ACLR
+ARST => Q.IN0
+outputEnable => Q.IN1
+readIn => sQ.ENA
+Q <= Q.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Practica2|tenBitDRegister:aReg|oneBitDRegister:bit6
+Din => sQ.DATAIN
+Clk => sQ.CLK
+ARST => sQ.ACLR
+ARST => Q.IN0
+outputEnable => Q.IN1
+readIn => sQ.ENA
+Q <= Q.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Practica2|tenBitDRegister:aReg|oneBitDRegister:bit7
+Din => sQ.DATAIN
+Clk => sQ.CLK
+ARST => sQ.ACLR
+ARST => Q.IN0
+outputEnable => Q.IN1
+readIn => sQ.ENA
+Q <= Q.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Practica2|tenBitDRegister:aReg|oneBitDRegister:bit8
+Din => sQ.DATAIN
+Clk => sQ.CLK
+ARST => sQ.ACLR
+ARST => Q.IN0
+outputEnable => Q.IN1
+readIn => sQ.ENA
+Q <= Q.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Practica2|tenBitDRegister:aReg|oneBitDRegister:bit9
+Din => sQ.DATAIN
+Clk => sQ.CLK
+ARST => sQ.ACLR
+ARST => Q.IN0
+outputEnable => Q.IN1
+readIn => sQ.ENA
+Q <= Q.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Practica2|triStateBuffer:aBuff1
+Din[0] => Dout[0].DATAIN
+Din[1] => Dout[1].DATAIN
+Din[2] => Dout[2].DATAIN
+Din[3] => Dout[3].DATAIN
+Din[4] => Dout[4].DATAIN
+Ep => Dout[0].OE
+Ep => Dout[1].OE
+Ep => Dout[2].OE
+Ep => Dout[3].OE
+Ep => Dout[4].OE
+Dout[0] <= Dout[0].DB_MAX_OUTPUT_PORT_TYPE
+Dout[1] <= Dout[1].DB_MAX_OUTPUT_PORT_TYPE
+Dout[2] <= Dout[2].DB_MAX_OUTPUT_PORT_TYPE
+Dout[3] <= Dout[3].DB_MAX_OUTPUT_PORT_TYPE
+Dout[4] <= Dout[4].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Practica2|triStateBuffer:aBuff2
+Din[0] => Dout[0].DATAIN
+Din[1] => Dout[1].DATAIN
+Din[2] => Dout[2].DATAIN
+Din[3] => Dout[3].DATAIN
+Din[4] => Dout[4].DATAIN
+Ep => Dout[0].OE
+Ep => Dout[1].OE
+Ep => Dout[2].OE
+Ep => Dout[3].OE
+Ep => Dout[4].OE
+Dout[0] <= Dout[0].DB_MAX_OUTPUT_PORT_TYPE
+Dout[1] <= Dout[1].DB_MAX_OUTPUT_PORT_TYPE
+Dout[2] <= Dout[2].DB_MAX_OUTPUT_PORT_TYPE
+Dout[3] <= Dout[3].DB_MAX_OUTPUT_PORT_TYPE
+Dout[4] <= Dout[4].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Practica2|tenBitDRegister:bReg
+Dbus[0] => oneBitDRegister:bit0.Din
+Dbus[1] => oneBitDRegister:bit1.Din
+Dbus[2] => oneBitDRegister:bit2.Din
+Dbus[3] => oneBitDRegister:bit3.Din
+Dbus[4] => oneBitDRegister:bit4.Din
+Dbus[5] => oneBitDRegister:bit5.Din
+Dbus[6] => oneBitDRegister:bit6.Din
+Dbus[7] => oneBitDRegister:bit7.Din
+Dbus[8] => oneBitDRegister:bit8.Din
+Dbus[9] => oneBitDRegister:bit9.Din
+Clk => oneBitDRegister:bit0.Clk
+Clk => oneBitDRegister:bit1.Clk
+Clk => oneBitDRegister:bit2.Clk
+Clk => oneBitDRegister:bit3.Clk
+Clk => oneBitDRegister:bit4.Clk
+Clk => oneBitDRegister:bit5.Clk
+Clk => oneBitDRegister:bit6.Clk
+Clk => oneBitDRegister:bit7.Clk
+Clk => oneBitDRegister:bit8.Clk
+Clk => oneBitDRegister:bit9.Clk
+ARST => oneBitDRegister:bit0.ARST
+ARST => oneBitDRegister:bit1.ARST
+ARST => oneBitDRegister:bit2.ARST
+ARST => oneBitDRegister:bit3.ARST
+ARST => oneBitDRegister:bit4.ARST
+ARST => oneBitDRegister:bit5.ARST
+ARST => oneBitDRegister:bit6.ARST
+ARST => oneBitDRegister:bit7.ARST
+ARST => oneBitDRegister:bit8.ARST
+ARST => oneBitDRegister:bit9.ARST
+outputEnable => oneBitDRegister:bit0.outputEnable
+outputEnable => oneBitDRegister:bit1.outputEnable
+outputEnable => oneBitDRegister:bit2.outputEnable
+outputEnable => oneBitDRegister:bit3.outputEnable
+outputEnable => oneBitDRegister:bit4.outputEnable
+outputEnable => oneBitDRegister:bit5.outputEnable
+outputEnable => oneBitDRegister:bit6.outputEnable
+outputEnable => oneBitDRegister:bit7.outputEnable
+outputEnable => oneBitDRegister:bit8.outputEnable
+outputEnable => oneBitDRegister:bit9.outputEnable
+readIn => oneBitDRegister:bit0.readIn
+readIn => oneBitDRegister:bit1.readIn
+readIn => oneBitDRegister:bit2.readIn
+readIn => oneBitDRegister:bit3.readIn
+readIn => oneBitDRegister:bit4.readIn
+readIn => oneBitDRegister:bit5.readIn
+readIn => oneBitDRegister:bit6.readIn
+readIn => oneBitDRegister:bit7.readIn
+readIn => oneBitDRegister:bit8.readIn
+readIn => oneBitDRegister:bit9.readIn
+Qbus[0] <= oneBitDRegister:bit0.Q
+Qbus[1] <= oneBitDRegister:bit1.Q
+Qbus[2] <= oneBitDRegister:bit2.Q
+Qbus[3] <= oneBitDRegister:bit3.Q
+Qbus[4] <= oneBitDRegister:bit4.Q
+Qbus[5] <= oneBitDRegister:bit5.Q
+Qbus[6] <= oneBitDRegister:bit6.Q
+Qbus[7] <= oneBitDRegister:bit7.Q
+Qbus[8] <= oneBitDRegister:bit8.Q
+Qbus[9] <= oneBitDRegister:bit9.Q
+
+
+|Practica2|tenBitDRegister:bReg|oneBitDRegister:bit0
+Din => sQ.DATAIN
+Clk => sQ.CLK
+ARST => sQ.ACLR
+ARST => Q.IN0
+outputEnable => Q.IN1
+readIn => sQ.ENA
+Q <= Q.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Practica2|tenBitDRegister:bReg|oneBitDRegister:bit1
+Din => sQ.DATAIN
+Clk => sQ.CLK
+ARST => sQ.ACLR
+ARST => Q.IN0
+outputEnable => Q.IN1
+readIn => sQ.ENA
+Q <= Q.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Practica2|tenBitDRegister:bReg|oneBitDRegister:bit2
+Din => sQ.DATAIN
+Clk => sQ.CLK
+ARST => sQ.ACLR
+ARST => Q.IN0
+outputEnable => Q.IN1
+readIn => sQ.ENA
+Q <= Q.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Practica2|tenBitDRegister:bReg|oneBitDRegister:bit3
+Din => sQ.DATAIN
+Clk => sQ.CLK
+ARST => sQ.ACLR
+ARST => Q.IN0
+outputEnable => Q.IN1
+readIn => sQ.ENA
+Q <= Q.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Practica2|tenBitDRegister:bReg|oneBitDRegister:bit4
+Din => sQ.DATAIN
+Clk => sQ.CLK
+ARST => sQ.ACLR
+ARST => Q.IN0
+outputEnable => Q.IN1
+readIn => sQ.ENA
+Q <= Q.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Practica2|tenBitDRegister:bReg|oneBitDRegister:bit5
+Din => sQ.DATAIN
+Clk => sQ.CLK
+ARST => sQ.ACLR
+ARST => Q.IN0
+outputEnable => Q.IN1
+readIn => sQ.ENA
+Q <= Q.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Practica2|tenBitDRegister:bReg|oneBitDRegister:bit6
+Din => sQ.DATAIN
+Clk => sQ.CLK
+ARST => sQ.ACLR
+ARST => Q.IN0
+outputEnable => Q.IN1
+readIn => sQ.ENA
+Q <= Q.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Practica2|tenBitDRegister:bReg|oneBitDRegister:bit7
+Din => sQ.DATAIN
+Clk => sQ.CLK
+ARST => sQ.ACLR
+ARST => Q.IN0
+outputEnable => Q.IN1
+readIn => sQ.ENA
+Q <= Q.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Practica2|tenBitDRegister:bReg|oneBitDRegister:bit8
+Din => sQ.DATAIN
+Clk => sQ.CLK
+ARST => sQ.ACLR
+ARST => Q.IN0
+outputEnable => Q.IN1
+readIn => sQ.ENA
+Q <= Q.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Practica2|tenBitDRegister:bReg|oneBitDRegister:bit9
+Din => sQ.DATAIN
+Clk => sQ.CLK
+ARST => sQ.ACLR
+ARST => Q.IN0
+outputEnable => Q.IN1
+readIn => sQ.ENA
+Q <= Q.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Practica2|ALU:arithlogic
+A[0] => Add0.IN20
+A[0] => Equal0.IN9
+A[0] => LessThan0.IN10
+A[0] => LessThan1.IN10
+A[1] => Add0.IN19
+A[1] => Equal0.IN8
+A[1] => LessThan0.IN9
+A[1] => LessThan1.IN9
+A[2] => Add0.IN18
+A[2] => Equal0.IN7
+A[2] => LessThan0.IN8
+A[2] => LessThan1.IN8
+A[3] => Add0.IN17
+A[3] => Equal0.IN6
+A[3] => LessThan0.IN7
+A[3] => LessThan1.IN7
+A[4] => Add0.IN16
+A[4] => Equal0.IN5
+A[4] => LessThan0.IN6
+A[4] => LessThan1.IN6
+A[5] => Add0.IN15
+A[5] => Equal0.IN4
+A[5] => LessThan0.IN5
+A[5] => LessThan1.IN5
+A[6] => Add0.IN14
+A[6] => Equal0.IN3
+A[6] => LessThan0.IN4
+A[6] => LessThan1.IN4
+A[7] => Add0.IN13
+A[7] => Equal0.IN2
+A[7] => LessThan0.IN3
+A[7] => LessThan1.IN3
+A[8] => Add0.IN12
+A[8] => Equal0.IN1
+A[8] => LessThan0.IN2
+A[8] => LessThan1.IN2
+A[9] => Add0.IN11
+A[9] => Equal0.IN0
+A[9] => LessThan0.IN1
+A[9] => LessThan1.IN1
+B[0] => Equal0.IN19
+B[0] => LessThan0.IN20
+B[0] => LessThan1.IN20
+B[0] => Add0.IN10
+B[1] => Equal0.IN18
+B[1] => LessThan0.IN19
+B[1] => LessThan1.IN19
+B[1] => Add0.IN9
+B[2] => Equal0.IN17
+B[2] => LessThan0.IN18
+B[2] => LessThan1.IN18
+B[2] => Add0.IN8
+B[3] => Equal0.IN16
+B[3] => LessThan0.IN17
+B[3] => LessThan1.IN17
+B[3] => Add0.IN7
+B[4] => Equal0.IN15
+B[4] => LessThan0.IN16
+B[4] => LessThan1.IN16
+B[4] => Add0.IN6
+B[5] => Equal0.IN14
+B[5] => LessThan0.IN15
+B[5] => LessThan1.IN15
+B[5] => Add0.IN5
+B[6] => Equal0.IN13
+B[6] => LessThan0.IN14
+B[6] => LessThan1.IN14
+B[6] => Add0.IN4
+B[7] => Equal0.IN12
+B[7] => LessThan0.IN13
+B[7] => LessThan1.IN13
+B[7] => Add0.IN3
+B[8] => Equal0.IN11
+B[8] => LessThan0.IN12
+B[8] => LessThan1.IN12
+B[8] => Add0.IN2
+B[9] => Equal0.IN10
+B[9] => LessThan0.IN11
+B[9] => LessThan1.IN11
+B[9] => Add0.IN1
+result[0] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
+result[1] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
+result[2] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
+result[3] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
+result[4] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
+result[5] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
+result[6] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
+result[7] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
+result[8] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
+result[9] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
+error <= process_0.DB_MAX_OUTPUT_PORT_TYPE
+greaterThan <= greaterThan$latch.DB_MAX_OUTPUT_PORT_TYPE
+equalTo <= equalTo$latch.DB_MAX_OUTPUT_PORT_TYPE
+lessThan <= lessThan$latch.DB_MAX_OUTPUT_PORT_TYPE
+subtract => ~NO_FANOUT~
+
+
+|Practica2|triStateBuffer:arithBuff1
+Din[0] => Dout[0].DATAIN
+Din[1] => Dout[1].DATAIN
+Din[2] => Dout[2].DATAIN
+Din[3] => Dout[3].DATAIN
+Din[4] => Dout[4].DATAIN
+Ep => Dout[0].OE
+Ep => Dout[1].OE
+Ep => Dout[2].OE
+Ep => Dout[3].OE
+Ep => Dout[4].OE
+Dout[0] <= Dout[0].DB_MAX_OUTPUT_PORT_TYPE
+Dout[1] <= Dout[1].DB_MAX_OUTPUT_PORT_TYPE
+Dout[2] <= Dout[2].DB_MAX_OUTPUT_PORT_TYPE
+Dout[3] <= Dout[3].DB_MAX_OUTPUT_PORT_TYPE
+Dout[4] <= Dout[4].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Practica2|triStateBuffer:arithBuff2
+Din[0] => Dout[0].DATAIN
+Din[1] => Dout[1].DATAIN
+Din[2] => Dout[2].DATAIN
+Din[3] => Dout[3].DATAIN
+Din[4] => Dout[4].DATAIN
+Ep => Dout[0].OE
+Ep => Dout[1].OE
+Ep => Dout[2].OE
+Ep => Dout[3].OE
+Ep => Dout[4].OE
+Dout[0] <= Dout[0].DB_MAX_OUTPUT_PORT_TYPE
+Dout[1] <= Dout[1].DB_MAX_OUTPUT_PORT_TYPE
+Dout[2] <= Dout[2].DB_MAX_OUTPUT_PORT_TYPE
+Dout[3] <= Dout[3].DB_MAX_OUTPUT_PORT_TYPE
+Dout[4] <= Dout[4].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Practica2|tenBitDRegister:oReg
+Dbus[0] => oneBitDRegister:bit0.Din
+Dbus[1] => oneBitDRegister:bit1.Din
+Dbus[2] => oneBitDRegister:bit2.Din
+Dbus[3] => oneBitDRegister:bit3.Din
+Dbus[4] => oneBitDRegister:bit4.Din
+Dbus[5] => oneBitDRegister:bit5.Din
+Dbus[6] => oneBitDRegister:bit6.Din
+Dbus[7] => oneBitDRegister:bit7.Din
+Dbus[8] => oneBitDRegister:bit8.Din
+Dbus[9] => oneBitDRegister:bit9.Din
+Clk => oneBitDRegister:bit0.Clk
+Clk => oneBitDRegister:bit1.Clk
+Clk => oneBitDRegister:bit2.Clk
+Clk => oneBitDRegister:bit3.Clk
+Clk => oneBitDRegister:bit4.Clk
+Clk => oneBitDRegister:bit5.Clk
+Clk => oneBitDRegister:bit6.Clk
+Clk => oneBitDRegister:bit7.Clk
+Clk => oneBitDRegister:bit8.Clk
+Clk => oneBitDRegister:bit9.Clk
+ARST => oneBitDRegister:bit0.ARST
+ARST => oneBitDRegister:bit1.ARST
+ARST => oneBitDRegister:bit2.ARST
+ARST => oneBitDRegister:bit3.ARST
+ARST => oneBitDRegister:bit4.ARST
+ARST => oneBitDRegister:bit5.ARST
+ARST => oneBitDRegister:bit6.ARST
+ARST => oneBitDRegister:bit7.ARST
+ARST => oneBitDRegister:bit8.ARST
+ARST => oneBitDRegister:bit9.ARST
+outputEnable => oneBitDRegister:bit0.outputEnable
+outputEnable => oneBitDRegister:bit1.outputEnable
+outputEnable => oneBitDRegister:bit2.outputEnable
+outputEnable => oneBitDRegister:bit3.outputEnable
+outputEnable => oneBitDRegister:bit4.outputEnable
+outputEnable => oneBitDRegister:bit5.outputEnable
+outputEnable => oneBitDRegister:bit6.outputEnable
+outputEnable => oneBitDRegister:bit7.outputEnable
+outputEnable => oneBitDRegister:bit8.outputEnable
+outputEnable => oneBitDRegister:bit9.outputEnable
+readIn => oneBitDRegister:bit0.readIn
+readIn => oneBitDRegister:bit1.readIn
+readIn => oneBitDRegister:bit2.readIn
+readIn => oneBitDRegister:bit3.readIn
+readIn => oneBitDRegister:bit4.readIn
+readIn => oneBitDRegister:bit5.readIn
+readIn => oneBitDRegister:bit6.readIn
+readIn => oneBitDRegister:bit7.readIn
+readIn => oneBitDRegister:bit8.readIn
+readIn => oneBitDRegister:bit9.readIn
+Qbus[0] <= oneBitDRegister:bit0.Q
+Qbus[1] <= oneBitDRegister:bit1.Q
+Qbus[2] <= oneBitDRegister:bit2.Q
+Qbus[3] <= oneBitDRegister:bit3.Q
+Qbus[4] <= oneBitDRegister:bit4.Q
+Qbus[5] <= oneBitDRegister:bit5.Q
+Qbus[6] <= oneBitDRegister:bit6.Q
+Qbus[7] <= oneBitDRegister:bit7.Q
+Qbus[8] <= oneBitDRegister:bit8.Q
+Qbus[9] <= oneBitDRegister:bit9.Q
+
+
+|Practica2|tenBitDRegister:oReg|oneBitDRegister:bit0
+Din => sQ.DATAIN
+Clk => sQ.CLK
+ARST => sQ.ACLR
+ARST => Q.IN0
+outputEnable => Q.IN1
+readIn => sQ.ENA
+Q <= Q.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Practica2|tenBitDRegister:oReg|oneBitDRegister:bit1
+Din => sQ.DATAIN
+Clk => sQ.CLK
+ARST => sQ.ACLR
+ARST => Q.IN0
+outputEnable => Q.IN1
+readIn => sQ.ENA
+Q <= Q.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Practica2|tenBitDRegister:oReg|oneBitDRegister:bit2
+Din => sQ.DATAIN
+Clk => sQ.CLK
+ARST => sQ.ACLR
+ARST => Q.IN0
+outputEnable => Q.IN1
+readIn => sQ.ENA
+Q <= Q.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Practica2|tenBitDRegister:oReg|oneBitDRegister:bit3
+Din => sQ.DATAIN
+Clk => sQ.CLK
+ARST => sQ.ACLR
+ARST => Q.IN0
+outputEnable => Q.IN1
+readIn => sQ.ENA
+Q <= Q.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Practica2|tenBitDRegister:oReg|oneBitDRegister:bit4
+Din => sQ.DATAIN
+Clk => sQ.CLK
+ARST => sQ.ACLR
+ARST => Q.IN0
+outputEnable => Q.IN1
+readIn => sQ.ENA
+Q <= Q.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Practica2|tenBitDRegister:oReg|oneBitDRegister:bit5
+Din => sQ.DATAIN
+Clk => sQ.CLK
+ARST => sQ.ACLR
+ARST => Q.IN0
+outputEnable => Q.IN1
+readIn => sQ.ENA
+Q <= Q.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Practica2|tenBitDRegister:oReg|oneBitDRegister:bit6
+Din => sQ.DATAIN
+Clk => sQ.CLK
+ARST => sQ.ACLR
+ARST => Q.IN0
+outputEnable => Q.IN1
+readIn => sQ.ENA
+Q <= Q.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Practica2|tenBitDRegister:oReg|oneBitDRegister:bit7
+Din => sQ.DATAIN
+Clk => sQ.CLK
+ARST => sQ.ACLR
+ARST => Q.IN0
+outputEnable => Q.IN1
+readIn => sQ.ENA
+Q <= Q.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Practica2|tenBitDRegister:oReg|oneBitDRegister:bit8
+Din => sQ.DATAIN
+Clk => sQ.CLK
+ARST => sQ.ACLR
+ARST => Q.IN0
+outputEnable => Q.IN1
+readIn => sQ.ENA
+Q <= Q.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Practica2|tenBitDRegister:oReg|oneBitDRegister:bit9
+Din => sQ.DATAIN
+Clk => sQ.CLK
+ARST => sQ.ACLR
+ARST => Q.IN0
+outputEnable => Q.IN1
+readIn => sQ.ENA
+Q <= Q.DB_MAX_OUTPUT_PORT_TYPE
+
+
