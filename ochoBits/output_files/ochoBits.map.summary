@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Thu Oct 17 21:18:39 2019
+Quartus II 32-bit Version : 12.1 Build 177 11/07/2012 SJ Web Edition
+Revision Name : ochoBits
+Top-level Entity Name : ochoBits
+Family : Cyclone IV E
+Total logic elements : 306
+    Total combinational functions : 306
+    Dedicated logic registers : 0
+Total registers : 0
+Total pins : 21
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0

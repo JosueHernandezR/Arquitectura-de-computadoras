@@ -1,0 +1,70 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+entity ochoBits is
+ Port ( inp_a : in signed(7 downto 0);
+ inp_b : in signed(5 downto 0);
+ out_result : out signed(7 downto 0));
+end ochoBits;
+ 
+architecture Behavioral of ochoBits is
+
+component ALU is
+ Port ( 	inp_a : in signed(7 downto 0);
+			inp_b : in signed(7 downto 0);
+			sel : in STD_LOGIC_VECTOR (3 downto 0);
+			out_alu : out signed(7 downto 0));
+end ALU;
+
+begin
+    process(inp_a, inp_b, sel)
+    begin
+        case sel is
+            when "00000" =>
+					G1: ALU port map (inp_a, inm_b,"0000",out_result);
+            when "00001" =>
+            
+            when "00010" =>
+            
+            when "00011" =>
+            
+            when "00100" =>
+            
+            when "00101" =>
+            
+            when "00110" =>
+            
+            when "00111" =>
+            
+				when "01000" =>
+				when "01001" =>
+				when "01010" =>
+				when "01011" =>
+				when "01100" =>
+				when "01101" =>
+				when "01110" =>
+				when "01111" =>
+				when "10000" =>
+				when "10001" =>
+				when "10010" =>
+				when "10011" =>
+				when "10100" =>
+				when "10101" =>
+				when "10110" =>
+				when "10111" =>
+				when "11000" =>
+				when "11001" =>
+				when "11010" =>
+				when "11011" =>
+				when "11100" =>
+				when "11101" =>
+            when others =>
+            NULL;
+        end case;
+    
+    end process;
+ 
+end Behavioral;
+	
+
+
