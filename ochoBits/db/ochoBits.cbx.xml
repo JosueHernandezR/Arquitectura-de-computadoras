@@ -1,5 +1,7 @@
 <?xml version="1.0" ?>
 <LOG_ROOT>
 	<PROJECT NAME="ochoBits">
+		<CBX_INST_ENTRY INSTANCE_NAME="|ochoBits|lpm_divide:Div0" CBX_FILE_NAME="lpm_divide_fvo.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|ochoBits|lpm_mult:Mult0" CBX_FILE_NAME="mult_73t.tdf"/>
 	</PROJECT>
 </LOG_ROOT>

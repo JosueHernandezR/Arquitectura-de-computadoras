@@ -1,5 +1,5 @@
 Analysis & Synthesis report for ochoBits
-Thu Oct 17 21:18:39 2019
+Wed Oct 23 20:41:46 2019
 Quartus II 32-bit Version 12.1 Build 177 11/07/2012 SJ Web Edition
 
 
@@ -13,11 +13,14 @@ Quartus II 32-bit Version 12.1 Build 177 11/07/2012 SJ Web Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. User-Specified and Inferred Latches
+  8. Analysis & Synthesis DSP Block Usage Summary
   9. General Register Statistics
  10. Multiplexer Restructuring Statistics (Restructuring Performed)
- 11. Elapsed Time Per Partition
- 12. Analysis & Synthesis Messages
+ 11. Parameter Settings for Inferred Entity Instance: lpm_mult:Mult0
+ 12. Parameter Settings for Inferred Entity Instance: lpm_divide:Div0
+ 13. lpm_mult Parameter Settings by Entity Instance
+ 14. Elapsed Time Per Partition
+ 15. Analysis & Synthesis Messages
 
 
 
@@ -43,19 +46,19 @@ applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +------------------------------------+------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Thu Oct 17 21:18:39 2019    ;
+; Analysis & Synthesis Status        ; Successful - Wed Oct 23 20:41:46 2019    ;
 ; Quartus II 32-bit Version          ; 12.1 Build 177 11/07/2012 SJ Web Edition ;
 ; Revision Name                      ; ochoBits                                 ;
 ; Top-level Entity Name              ; ochoBits                                 ;
 ; Family                             ; Cyclone IV E                             ;
-; Total logic elements               ; 306                                      ;
-;     Total combinational functions  ; 306                                      ;
-;     Dedicated logic registers      ; 0                                        ;
-; Total registers                    ; 0                                        ;
-; Total pins                         ; 21                                       ;
+; Total logic elements               ; 459                                      ;
+;     Total combinational functions  ; 327                                      ;
+;     Dedicated logic registers      ; 156                                      ;
+; Total registers                    ; 156                                      ;
+; Total pins                         ; 22                                       ;
 ; Total virtual pins                 ; 0                                        ;
 ; Total memory bits                  ; 0                                        ;
-; Embedded Multiplier 9-bit elements ; 0                                        ;
+; Embedded Multiplier 9-bit elements ; 1                                        ;
 ; Total PLLs                         ; 0                                        ;
 +------------------------------------+------------------------------------------+
 
@@ -164,13 +167,29 @@ applicable agreement for further details.
 +----------------------------+-------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                              ;
-+----------------------------------+-----------------+-----------------+------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path       ; Library ;
-+----------------------------------+-----------------+-----------------+------------------------------------+---------+
-; ochoBits.vhd                     ; yes             ; User VHDL File  ; D:/Altera 12/ochoBits/ochoBits.vhd ;         ;
-+----------------------------------+-----------------+-----------------+------------------------------------+---------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                         ;
++----------------------------------+-----------------+------------------------------+------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                     ; Library ;
++----------------------------------+-----------------+------------------------------+------------------------------------------------------------------+---------+
+; ochoBits.vhd                     ; yes             ; User VHDL File               ; D:/Altera 12/ochoBits/ochoBits.vhd                               ;         ;
+; lpm_mult.tdf                     ; yes             ; Megafunction                 ; d:/altera 12/quartus/libraries/megafunctions/lpm_mult.tdf        ;         ;
+; aglobal121.inc                   ; yes             ; Megafunction                 ; d:/altera 12/quartus/libraries/megafunctions/aglobal121.inc      ;         ;
+; lpm_add_sub.inc                  ; yes             ; Megafunction                 ; d:/altera 12/quartus/libraries/megafunctions/lpm_add_sub.inc     ;         ;
+; multcore.inc                     ; yes             ; Megafunction                 ; d:/altera 12/quartus/libraries/megafunctions/multcore.inc        ;         ;
+; bypassff.inc                     ; yes             ; Megafunction                 ; d:/altera 12/quartus/libraries/megafunctions/bypassff.inc        ;         ;
+; altshift.inc                     ; yes             ; Megafunction                 ; d:/altera 12/quartus/libraries/megafunctions/altshift.inc        ;         ;
+; db/mult_73t.tdf                  ; yes             ; Auto-Generated Megafunction  ; D:/Altera 12/ochoBits/db/mult_73t.tdf                            ;         ;
+; lpm_divide.tdf                   ; yes             ; Megafunction                 ; d:/altera 12/quartus/libraries/megafunctions/lpm_divide.tdf      ;         ;
+; abs_divider.inc                  ; yes             ; Megafunction                 ; d:/altera 12/quartus/libraries/megafunctions/abs_divider.inc     ;         ;
+; sign_div_unsign.inc              ; yes             ; Megafunction                 ; d:/altera 12/quartus/libraries/megafunctions/sign_div_unsign.inc ;         ;
+; db/lpm_divide_fvo.tdf            ; yes             ; Auto-Generated Megafunction  ; D:/Altera 12/ochoBits/db/lpm_divide_fvo.tdf                      ;         ;
+; db/abs_divider_aag.tdf           ; yes             ; Auto-Generated Megafunction  ; D:/Altera 12/ochoBits/db/abs_divider_aag.tdf                     ;         ;
+; db/alt_u_div_i4f.tdf             ; yes             ; Auto-Generated Megafunction  ; D:/Altera 12/ochoBits/db/alt_u_div_i4f.tdf                       ;         ;
+; db/add_sub_7pc.tdf               ; yes             ; Auto-Generated Megafunction  ; D:/Altera 12/ochoBits/db/add_sub_7pc.tdf                         ;         ;
+; db/add_sub_8pc.tdf               ; yes             ; Auto-Generated Megafunction  ; D:/Altera 12/ochoBits/db/add_sub_8pc.tdf                         ;         ;
+; db/lpm_abs_5v9.tdf               ; yes             ; Auto-Generated Megafunction  ; D:/Altera 12/ochoBits/db/lpm_abs_5v9.tdf                         ;         ;
++----------------------------------+-----------------+------------------------------+------------------------------------------------------------------+---------+
 
 
 +-----------------------------------------------------+
@@ -178,148 +197,66 @@ applicable agreement for further details.
 +---------------------------------------------+-------+
 ; Resource                                    ; Usage ;
 +---------------------------------------------+-------+
-; Estimated Total logic elements              ; 306   ;
+; Estimated Total logic elements              ; 459   ;
 ;                                             ;       ;
-; Total combinational functions               ; 306   ;
+; Total combinational functions               ; 327   ;
 ; Logic element usage by number of LUT inputs ;       ;
-;     -- 4 input functions                    ; 120   ;
-;     -- 3 input functions                    ; 184   ;
-;     -- <=2 input functions                  ; 2     ;
+;     -- 4 input functions                    ; 200   ;
+;     -- 3 input functions                    ; 101   ;
+;     -- <=2 input functions                  ; 26    ;
 ;                                             ;       ;
 ; Logic elements by mode                      ;       ;
-;     -- normal mode                          ; 298   ;
-;     -- arithmetic mode                      ; 8     ;
+;     -- normal mode                          ; 265   ;
+;     -- arithmetic mode                      ; 62    ;
 ;                                             ;       ;
-; Total registers                             ; 0     ;
-;     -- Dedicated logic registers            ; 0     ;
+; Total registers                             ; 156   ;
+;     -- Dedicated logic registers            ; 156   ;
 ;     -- I/O registers                        ; 0     ;
 ;                                             ;       ;
-; I/O pins                                    ; 21    ;
-; Embedded Multiplier 9-bit elements          ; 0     ;
-; Maximum fan-out                             ; 47    ;
-; Total fan-out                               ; 1065  ;
-; Average fan-out                             ; 3.06  ;
+; I/O pins                                    ; 22    ;
+; Embedded Multiplier 9-bit elements          ; 1     ;
+; Maximum fan-out                             ; 156   ;
+; Total fan-out                               ; 1678  ;
+; Average fan-out                             ; 3.17  ;
 +---------------------------------------------+-------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                         ;
-+----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
-; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Library Name ;
-+----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
-; |ochoBits                  ; 306 (306)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 21   ; 0            ; |ochoBits           ;              ;
-+----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                             ;
++----------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------------------------------------+--------------+
+; Compilation Hierarchy Node             ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                         ; Library Name ;
++----------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------------------------------------+--------------+
+; |ochoBits                              ; 327 (220)         ; 156 (156)    ; 0           ; 1            ; 1       ; 0         ; 22   ; 0            ; |ochoBits                                                                                                                   ;              ;
+;    |lpm_divide:Div0|                   ; 107 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ochoBits|lpm_divide:Div0                                                                                                   ;              ;
+;       |lpm_divide_fvo:auto_generated|  ; 107 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ochoBits|lpm_divide:Div0|lpm_divide_fvo:auto_generated                                                                     ;              ;
+;          |abs_divider_aag:divider|     ; 107 (14)          ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ochoBits|lpm_divide:Div0|lpm_divide_fvo:auto_generated|abs_divider_aag:divider                                             ;              ;
+;             |alt_u_div_i4f:divider|    ; 77 (74)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ochoBits|lpm_divide:Div0|lpm_divide_fvo:auto_generated|abs_divider_aag:divider|alt_u_div_i4f:divider                       ;              ;
+;                |add_sub_7pc:add_sub_0| ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ochoBits|lpm_divide:Div0|lpm_divide_fvo:auto_generated|abs_divider_aag:divider|alt_u_div_i4f:divider|add_sub_7pc:add_sub_0 ;              ;
+;                |add_sub_8pc:add_sub_1| ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ochoBits|lpm_divide:Div0|lpm_divide_fvo:auto_generated|abs_divider_aag:divider|alt_u_div_i4f:divider|add_sub_8pc:add_sub_1 ;              ;
+;             |lpm_abs_5v9:my_abs_den|   ; 8 (8)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ochoBits|lpm_divide:Div0|lpm_divide_fvo:auto_generated|abs_divider_aag:divider|lpm_abs_5v9:my_abs_den                      ;              ;
+;             |lpm_abs_5v9:my_abs_num|   ; 8 (8)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ochoBits|lpm_divide:Div0|lpm_divide_fvo:auto_generated|abs_divider_aag:divider|lpm_abs_5v9:my_abs_num                      ;              ;
+;    |lpm_mult:Mult0|                    ; 0 (0)             ; 0 (0)        ; 0           ; 1            ; 1       ; 0         ; 0    ; 0            ; |ochoBits|lpm_mult:Mult0                                                                                                    ;              ;
+;       |mult_73t:auto_generated|        ; 0 (0)             ; 0 (0)        ; 0           ; 1            ; 1       ; 0         ; 0    ; 0            ; |ochoBits|lpm_mult:Mult0|mult_73t:auto_generated                                                                            ;              ;
++----------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
-+-----------------------------------------------------------------------------------------------------+
-; User-Specified and Inferred Latches                                                                 ;
-+------------------------------------------------------+---------------------+------------------------+
-; Latch Name                                           ; Latch Enable Signal ; Free of Timing Hazards ;
-+------------------------------------------------------+---------------------+------------------------+
-; out_alu[0]$latch                                     ; Mux21               ; yes                    ;
-; out_alu[1]$latch                                     ; Mux21               ; yes                    ;
-; out_alu[2]$latch                                     ; Mux21               ; yes                    ;
-; out_alu[3]$latch                                     ; Mux21               ; yes                    ;
-; out_alu[4]$latch                                     ; Mux21               ; yes                    ;
-; out_alu[5]$latch                                     ; Mux21               ; yes                    ;
-; out_alu[6]$latch                                     ; Mux21               ; yes                    ;
-; out_alu[7]$latch                                     ; Mux21               ; yes                    ;
-; buf_out[0]                                           ; Mux320              ; yes                    ;
-; buf_out[1]                                           ; Mux320              ; yes                    ;
-; buf_out[2]                                           ; Mux320              ; yes                    ;
-; buf_out[3]                                           ; Mux320              ; yes                    ;
-; buf_out[4]                                           ; Mux320              ; yes                    ;
-; buf_out[5]                                           ; Mux320              ; yes                    ;
-; buf_out[6]                                           ; Mux320              ; yes                    ;
-; buf_out[7]                                           ; Mux320              ; yes                    ;
-; reg1[0]                                              ; Mux23               ; yes                    ;
-; reg1[1]                                              ; Mux23               ; yes                    ;
-; reg1[2]                                              ; Mux23               ; yes                    ;
-; reg1[3]                                              ; Mux23               ; yes                    ;
-; reg1[4]                                              ; Mux23               ; yes                    ;
-; reg1[5]                                              ; Mux23               ; yes                    ;
-; reg1[6]                                              ; Mux23               ; yes                    ;
-; reg1[7]                                              ; Mux23               ; yes                    ;
-; Ax10[0]                                              ; Mux124              ; yes                    ;
-; ram_sel[1]                                           ; Mux10               ; yes                    ;
-; Ax09[0]                                              ; Mux142              ; yes                    ;
-; ram_sel[0]                                           ; Mux10               ; yes                    ;
-; Ax08[0]                                              ; Mux160              ; yes                    ;
-; Ax11[0]                                              ; Mux106              ; yes                    ;
-; ram_sel[3]                                           ; Mux10               ; yes                    ;
-; Ax05[0]                                              ; Mux214              ; yes                    ;
-; Ax06[0]                                              ; Mux196              ; yes                    ;
-; Ax04[0]                                              ; Mux232              ; yes                    ;
-; Ax07[0]                                              ; Mux178              ; yes                    ;
-; ram_sel[2]                                           ; Mux10               ; yes                    ;
-; Ax02[0]                                              ; Mux268              ; yes                    ;
-; Ax01[0]                                              ; Mux286              ; yes                    ;
-; Ax00[0]                                              ; Mux304              ; yes                    ;
-; Ax03[0]                                              ; Mux250              ; yes                    ;
-; Ax13[0]                                              ; Mux70               ; yes                    ;
-; Ax14[0]                                              ; Mux52               ; yes                    ;
-; Ax12[0]                                              ; Mux88               ; yes                    ;
-; Ax15[0]                                              ; Mux34               ; yes                    ;
-; Ax06[1]                                              ; Mux196              ; yes                    ;
-; Ax10[1]                                              ; Mux124              ; yes                    ;
-; Ax02[1]                                              ; Mux268              ; yes                    ;
-; Ax14[1]                                              ; Mux52               ; yes                    ;
-; Ax09[1]                                              ; Mux142              ; yes                    ;
-; Ax05[1]                                              ; Mux214              ; yes                    ;
-; Ax01[1]                                              ; Mux286              ; yes                    ;
-; Ax13[1]                                              ; Mux70               ; yes                    ;
-; Ax04[1]                                              ; Mux232              ; yes                    ;
-; Ax08[1]                                              ; Mux160              ; yes                    ;
-; Ax00[1]                                              ; Mux304              ; yes                    ;
-; Ax12[1]                                              ; Mux88               ; yes                    ;
-; Ax11[1]                                              ; Mux106              ; yes                    ;
-; Ax07[1]                                              ; Mux178              ; yes                    ;
-; Ax03[1]                                              ; Mux250              ; yes                    ;
-; Ax15[1]                                              ; Mux34               ; yes                    ;
-; Ax06[2]                                              ; Mux196              ; yes                    ;
-; Ax05[2]                                              ; Mux214              ; yes                    ;
-; Ax04[2]                                              ; Mux232              ; yes                    ;
-; Ax07[2]                                              ; Mux178              ; yes                    ;
-; Ax09[2]                                              ; Mux142              ; yes                    ;
-; Ax10[2]                                              ; Mux124              ; yes                    ;
-; Ax08[2]                                              ; Mux160              ; yes                    ;
-; Ax11[2]                                              ; Mux106              ; yes                    ;
-; Ax01[2]                                              ; Mux286              ; yes                    ;
-; Ax02[2]                                              ; Mux268              ; yes                    ;
-; Ax00[2]                                              ; Mux304              ; yes                    ;
-; Ax03[2]                                              ; Mux250              ; yes                    ;
-; Ax14[2]                                              ; Mux52               ; yes                    ;
-; Ax13[2]                                              ; Mux70               ; yes                    ;
-; Ax12[2]                                              ; Mux88               ; yes                    ;
-; Ax15[2]                                              ; Mux34               ; yes                    ;
-; Ax05[3]                                              ; Mux214              ; yes                    ;
-; Ax09[3]                                              ; Mux142              ; yes                    ;
-; Ax01[3]                                              ; Mux286              ; yes                    ;
-; Ax13[3]                                              ; Mux70               ; yes                    ;
-; Ax10[3]                                              ; Mux124              ; yes                    ;
-; Ax06[3]                                              ; Mux196              ; yes                    ;
-; Ax02[3]                                              ; Mux268              ; yes                    ;
-; Ax14[3]                                              ; Mux52               ; yes                    ;
-; Ax08[3]                                              ; Mux160              ; yes                    ;
-; Ax04[3]                                              ; Mux232              ; yes                    ;
-; Ax00[3]                                              ; Mux304              ; yes                    ;
-; Ax12[3]                                              ; Mux88               ; yes                    ;
-; Ax07[3]                                              ; Mux178              ; yes                    ;
-; Ax11[3]                                              ; Mux106              ; yes                    ;
-; Ax03[3]                                              ; Mux250              ; yes                    ;
-; Ax15[3]                                              ; Mux34               ; yes                    ;
-; Ax10[4]                                              ; Mux124              ; yes                    ;
-; Ax09[4]                                              ; Mux142              ; yes                    ;
-; Ax08[4]                                              ; Mux160              ; yes                    ;
-; Ax11[4]                                              ; Mux106              ; yes                    ;
-; Ax05[4]                                              ; Mux214              ; yes                    ;
-; Ax06[4]                                              ; Mux196              ; yes                    ;
-; Ax04[4]                                              ; Mux232              ; yes                    ;
-; Ax07[4]                                              ; Mux178              ; yes                    ;
-; Number of user-specified and inferred latches = 156  ;                     ;                        ;
-+------------------------------------------------------+---------------------+------------------------+
-Table restricted to first 100 entries. Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
++-----------------------------------------------------+
+; Analysis & Synthesis DSP Block Usage Summary        ;
++---------------------------------------+-------------+
+; Statistic                             ; Number Used ;
++---------------------------------------+-------------+
+; Simple Multipliers (9-bit)            ; 1           ;
+; Simple Multipliers (18-bit)           ; 0           ;
+; Embedded Multiplier Blocks            ; --          ;
+; Embedded Multiplier 9-bit elements    ; 1           ;
+; Signed Embedded Multipliers           ; 1           ;
+; Unsigned Embedded Multipliers         ; 0           ;
+; Mixed Sign Embedded Multipliers       ; 0           ;
+; Variable Sign Embedded Multipliers    ; 0           ;
+; Dedicated Input Shift Register Chains ; 0           ;
++---------------------------------------+-------------+
+Note: number of Embedded Multiplier Blocks used is only available after a successful fit.
 
 
 +------------------------------------------------------+
@@ -327,12 +264,12 @@ Table restricted to first 100 entries. Note: All latches listed above may not be
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 0     ;
-; Number of registers using Synchronous Clear  ; 0     ;
-; Number of registers using Synchronous Load   ; 0     ;
+; Total registers                              ; 156   ;
+; Number of registers using Synchronous Clear  ; 8     ;
+; Number of registers using Synchronous Load   ; 8     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Clock Enable       ; 156   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -342,29 +279,105 @@ Table restricted to first 100 entries. Note: All latches listed above may not be
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
-; 1:1                ; 8 bits    ; 0 LEs         ; 0 LEs                ; 0 LEs                  ; No         ; |ochoBits|Mux13            ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 0 LEs                ; 8 LEs                  ; No         ; |ochoBits|Add0             ;
-; 8:1                ; 8 bits    ; 40 LEs        ; 24 LEs               ; 16 LEs                 ; No         ; |ochoBits|Mux319           ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |ochoBits|Add0             ;
-; 1:1                ; 8 bits    ; 0 LEs         ; 0 LEs                ; 0 LEs                  ; No         ; |ochoBits|Mux47            ;
-; 1:1                ; 8 bits    ; 0 LEs         ; 0 LEs                ; 0 LEs                  ; No         ; |ochoBits|Mux53            ;
-; 1:1                ; 8 bits    ; 0 LEs         ; 0 LEs                ; 0 LEs                  ; No         ; |ochoBits|Mux79            ;
-; 1:1                ; 8 bits    ; 0 LEs         ; 0 LEs                ; 0 LEs                  ; No         ; |ochoBits|Mux99            ;
-; 1:1                ; 8 bits    ; 0 LEs         ; 0 LEs                ; 0 LEs                  ; No         ; |ochoBits|Mux111           ;
-; 1:1                ; 8 bits    ; 0 LEs         ; 0 LEs                ; 0 LEs                  ; No         ; |ochoBits|Mux121           ;
-; 1:1                ; 8 bits    ; 0 LEs         ; 0 LEs                ; 0 LEs                  ; No         ; |ochoBits|Mux145           ;
-; 1:1                ; 8 bits    ; 0 LEs         ; 0 LEs                ; 0 LEs                  ; No         ; |ochoBits|Mux169           ;
-; 1:1                ; 8 bits    ; 0 LEs         ; 0 LEs                ; 0 LEs                  ; No         ; |ochoBits|Mux185           ;
-; 1:1                ; 8 bits    ; 0 LEs         ; 0 LEs                ; 0 LEs                  ; No         ; |ochoBits|Mux193           ;
-; 1:1                ; 8 bits    ; 0 LEs         ; 0 LEs                ; 0 LEs                  ; No         ; |ochoBits|Mux219           ;
-; 1:1                ; 8 bits    ; 0 LEs         ; 0 LEs                ; 0 LEs                  ; No         ; |ochoBits|Mux243           ;
-; 1:1                ; 8 bits    ; 0 LEs         ; 0 LEs                ; 0 LEs                  ; No         ; |ochoBits|Mux261           ;
-; 1:1                ; 8 bits    ; 0 LEs         ; 0 LEs                ; 0 LEs                  ; No         ; |ochoBits|Mux275           ;
-; 1:1                ; 8 bits    ; 0 LEs         ; 0 LEs                ; 0 LEs                  ; No         ; |ochoBits|Mux297           ;
-; 1:1                ; 8 bits    ; 0 LEs         ; 0 LEs                ; 0 LEs                  ; No         ; |ochoBits|Mux313           ;
-; 16:1               ; 8 bits    ; 80 LEs        ; 80 LEs               ; 0 LEs                  ; No         ; |ochoBits|Mux30            ;
-; 1:1                ; 4 bits    ; 0 LEs         ; 0 LEs                ; 0 LEs                  ; No         ; |ochoBits|Mux0             ;
+; 34:1               ; 8 bits    ; 176 LEs       ; 8 LEs                ; 168 LEs                ; Yes        ; |ochoBits|Ax00[1]          ;
+; 34:1               ; 8 bits    ; 176 LEs       ; 8 LEs                ; 168 LEs                ; Yes        ; |ochoBits|Ax01[0]          ;
+; 34:1               ; 8 bits    ; 176 LEs       ; 8 LEs                ; 168 LEs                ; Yes        ; |ochoBits|Ax02[6]          ;
+; 34:1               ; 8 bits    ; 176 LEs       ; 8 LEs                ; 168 LEs                ; Yes        ; |ochoBits|Ax03[5]          ;
+; 34:1               ; 8 bits    ; 176 LEs       ; 8 LEs                ; 168 LEs                ; Yes        ; |ochoBits|Ax04[7]          ;
+; 34:1               ; 8 bits    ; 176 LEs       ; 8 LEs                ; 168 LEs                ; Yes        ; |ochoBits|Ax05[3]          ;
+; 34:1               ; 8 bits    ; 176 LEs       ; 8 LEs                ; 168 LEs                ; Yes        ; |ochoBits|Ax06[0]          ;
+; 34:1               ; 8 bits    ; 176 LEs       ; 8 LEs                ; 168 LEs                ; Yes        ; |ochoBits|Ax07[5]          ;
+; 34:1               ; 8 bits    ; 176 LEs       ; 8 LEs                ; 168 LEs                ; Yes        ; |ochoBits|Ax08[1]          ;
+; 34:1               ; 8 bits    ; 176 LEs       ; 8 LEs                ; 168 LEs                ; Yes        ; |ochoBits|Ax09[7]          ;
+; 34:1               ; 8 bits    ; 176 LEs       ; 8 LEs                ; 168 LEs                ; Yes        ; |ochoBits|Ax10[2]          ;
+; 34:1               ; 8 bits    ; 176 LEs       ; 8 LEs                ; 168 LEs                ; Yes        ; |ochoBits|Ax11[0]          ;
+; 34:1               ; 8 bits    ; 176 LEs       ; 8 LEs                ; 168 LEs                ; Yes        ; |ochoBits|Ax12[0]          ;
+; 34:1               ; 8 bits    ; 176 LEs       ; 8 LEs                ; 168 LEs                ; Yes        ; |ochoBits|Ax13[5]          ;
+; 34:1               ; 8 bits    ; 176 LEs       ; 8 LEs                ; 168 LEs                ; Yes        ; |ochoBits|Ax14[4]          ;
+; 34:1               ; 8 bits    ; 176 LEs       ; 8 LEs                ; 168 LEs                ; Yes        ; |ochoBits|Ax15[1]          ;
+; 23:1               ; 4 bits    ; 60 LEs        ; 32 LEs               ; 28 LEs                 ; Yes        ; |ochoBits|buf_out[5]       ;
+; 23:1               ; 4 bits    ; 60 LEs        ; 32 LEs               ; 28 LEs                 ; Yes        ; |ochoBits|buf_out[0]       ;
+; 34:1               ; 8 bits    ; 176 LEs       ; 96 LEs               ; 80 LEs                 ; Yes        ; |ochoBits|reg1[0]          ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |ochoBits|Add0             ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+
+
++-------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_mult:Mult0                     ;
++------------------------------------------------+--------------+---------------------+
+; Parameter Name                                 ; Value        ; Type                ;
++------------------------------------------------+--------------+---------------------+
+; AUTO_CARRY_CHAINS                              ; ON           ; AUTO_CARRY          ;
+; IGNORE_CARRY_BUFFERS                           ; OFF          ; IGNORE_CARRY        ;
+; AUTO_CASCADE_CHAINS                            ; ON           ; AUTO_CASCADE        ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF          ; IGNORE_CASCADE      ;
+; LPM_WIDTHA                                     ; 8            ; Untyped             ;
+; LPM_WIDTHB                                     ; 8            ; Untyped             ;
+; LPM_WIDTHP                                     ; 16           ; Untyped             ;
+; LPM_WIDTHR                                     ; 16           ; Untyped             ;
+; LPM_WIDTHS                                     ; 1            ; Untyped             ;
+; LPM_REPRESENTATION                             ; SIGNED       ; Untyped             ;
+; LPM_PIPELINE                                   ; 0            ; Untyped             ;
+; LATENCY                                        ; 0            ; Untyped             ;
+; INPUT_A_IS_CONSTANT                            ; NO           ; Untyped             ;
+; INPUT_B_IS_CONSTANT                            ; NO           ; Untyped             ;
+; USE_EAB                                        ; OFF          ; Untyped             ;
+; MAXIMIZE_SPEED                                 ; 5            ; Untyped             ;
+; DEVICE_FAMILY                                  ; Cyclone IV E ; Untyped             ;
+; CARRY_CHAIN                                    ; MANUAL       ; Untyped             ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT          ; TECH_MAPPER_APEX20K ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO         ; Untyped             ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0            ; Untyped             ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0            ; Untyped             ;
+; CBXI_PARAMETER                                 ; mult_73t     ; Untyped             ;
+; INPUT_A_FIXED_VALUE                            ; Bx           ; Untyped             ;
+; INPUT_B_FIXED_VALUE                            ; Bx           ; Untyped             ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF          ; Untyped             ;
++------------------------------------------------+--------------+---------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_divide:Div0 ;
++------------------------+----------------+------------------------+
+; Parameter Name         ; Value          ; Type                   ;
++------------------------+----------------+------------------------+
+; LPM_WIDTHN             ; 8              ; Untyped                ;
+; LPM_WIDTHD             ; 8              ; Untyped                ;
+; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                ;
+; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                ;
+; LPM_PIPELINE           ; 0              ; Untyped                ;
+; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
+; CBXI_PARAMETER         ; lpm_divide_fvo ; Untyped                ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY           ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE           ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE         ;
++------------------------+----------------+------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------+
+; lpm_mult Parameter Settings by Entity Instance         ;
++---------------------------------------+----------------+
+; Name                                  ; Value          ;
++---------------------------------------+----------------+
+; Number of entity instances            ; 1              ;
+; Entity Instance                       ; lpm_mult:Mult0 ;
+;     -- LPM_WIDTHA                     ; 8              ;
+;     -- LPM_WIDTHB                     ; 8              ;
+;     -- LPM_WIDTHP                     ; 16             ;
+;     -- LPM_REPRESENTATION             ; SIGNED         ;
+;     -- INPUT_A_IS_CONSTANT            ; NO             ;
+;     -- INPUT_B_IS_CONSTANT            ; NO             ;
+;     -- USE_EAB                        ; OFF            ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO           ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx             ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx             ;
++---------------------------------------+----------------+
 
 
 +-------------------------------+
@@ -372,7 +385,7 @@ Table restricted to first 100 entries. Note: All latches listed above may not be
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:01     ;
+; Top            ; 00:00:07     ;
 +----------------+--------------+
 
 
@@ -382,7 +395,7 @@ Table restricted to first 100 entries. Note: All latches listed above may not be
 Info: *******************************************************************
 Info: Running Quartus II 32-bit Analysis & Synthesis
     Info: Version 12.1 Build 177 11/07/2012 SJ Web Edition
-    Info: Processing started: Thu Oct 17 21:18:36 2019
+    Info: Processing started: Wed Oct 23 20:41:37 2019
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off ochoBits -c ochoBits
 Info (11104): Parallel Compilation has detected 4 hyper-threaded processors. However, the extra hyper-threaded processors will not be used by default. Parallel Compilation will use 2 of the 2 physical processors detected instead.
 Warning (12019): Can't analyze file -- file ochoBits.v is missing
@@ -394,193 +407,53 @@ Info (12021): Found 2 design units, including 1 entities, in source file alu.vhd
     Info (12022): Found design unit 1: ALU-Behavioral
     Info (12023): Found entity 1: ALU
 Info (12127): Elaborating entity "ochoBits" for the top level hierarchy
-Warning (10631): VHDL Process Statement warning at ochoBits.vhd(15): inferring latch(es) for signal or variable "buf_out", which holds its previous value in one or more paths through the process
-Warning (10631): VHDL Process Statement warning at ochoBits.vhd(15): inferring latch(es) for signal or variable "Ax00", which holds its previous value in one or more paths through the process
-Warning (10631): VHDL Process Statement warning at ochoBits.vhd(15): inferring latch(es) for signal or variable "Ax01", which holds its previous value in one or more paths through the process
-Warning (10631): VHDL Process Statement warning at ochoBits.vhd(15): inferring latch(es) for signal or variable "Ax02", which holds its previous value in one or more paths through the process
-Warning (10631): VHDL Process Statement warning at ochoBits.vhd(15): inferring latch(es) for signal or variable "Ax03", which holds its previous value in one or more paths through the process
-Warning (10631): VHDL Process Statement warning at ochoBits.vhd(15): inferring latch(es) for signal or variable "Ax04", which holds its previous value in one or more paths through the process
-Warning (10631): VHDL Process Statement warning at ochoBits.vhd(15): inferring latch(es) for signal or variable "Ax05", which holds its previous value in one or more paths through the process
-Warning (10631): VHDL Process Statement warning at ochoBits.vhd(15): inferring latch(es) for signal or variable "Ax06", which holds its previous value in one or more paths through the process
-Warning (10631): VHDL Process Statement warning at ochoBits.vhd(15): inferring latch(es) for signal or variable "Ax07", which holds its previous value in one or more paths through the process
-Warning (10631): VHDL Process Statement warning at ochoBits.vhd(15): inferring latch(es) for signal or variable "Ax08", which holds its previous value in one or more paths through the process
-Warning (10631): VHDL Process Statement warning at ochoBits.vhd(15): inferring latch(es) for signal or variable "Ax09", which holds its previous value in one or more paths through the process
-Warning (10631): VHDL Process Statement warning at ochoBits.vhd(15): inferring latch(es) for signal or variable "Ax10", which holds its previous value in one or more paths through the process
-Warning (10631): VHDL Process Statement warning at ochoBits.vhd(15): inferring latch(es) for signal or variable "Ax11", which holds its previous value in one or more paths through the process
-Warning (10631): VHDL Process Statement warning at ochoBits.vhd(15): inferring latch(es) for signal or variable "Ax12", which holds its previous value in one or more paths through the process
-Warning (10631): VHDL Process Statement warning at ochoBits.vhd(15): inferring latch(es) for signal or variable "Ax13", which holds its previous value in one or more paths through the process
-Warning (10631): VHDL Process Statement warning at ochoBits.vhd(15): inferring latch(es) for signal or variable "Ax14", which holds its previous value in one or more paths through the process
-Warning (10631): VHDL Process Statement warning at ochoBits.vhd(15): inferring latch(es) for signal or variable "Ax15", which holds its previous value in one or more paths through the process
-Warning (10631): VHDL Process Statement warning at ochoBits.vhd(15): inferring latch(es) for signal or variable "reg1", which holds its previous value in one or more paths through the process
-Warning (10631): VHDL Process Statement warning at ochoBits.vhd(15): inferring latch(es) for signal or variable "out_alu", which holds its previous value in one or more paths through the process
-Warning (10631): VHDL Process Statement warning at ochoBits.vhd(15): inferring latch(es) for signal or variable "ram_sel", which holds its previous value in one or more paths through the process
-Info (10041): Inferred latch for "ram_sel[0]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "ram_sel[1]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "ram_sel[2]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "ram_sel[3]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "out_alu[0]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "out_alu[1]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "out_alu[2]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "out_alu[3]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "out_alu[4]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "out_alu[5]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "out_alu[6]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "out_alu[7]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "reg1[0]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "reg1[1]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "reg1[2]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "reg1[3]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "reg1[4]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "reg1[5]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "reg1[6]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "reg1[7]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax15[0]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax15[1]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax15[2]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax15[3]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax15[4]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax15[5]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax15[6]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax15[7]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax14[0]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax14[1]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax14[2]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax14[3]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax14[4]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax14[5]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax14[6]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax14[7]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax13[0]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax13[1]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax13[2]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax13[3]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax13[4]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax13[5]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax13[6]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax13[7]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax12[0]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax12[1]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax12[2]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax12[3]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax12[4]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax12[5]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax12[6]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax12[7]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax11[0]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax11[1]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax11[2]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax11[3]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax11[4]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax11[5]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax11[6]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax11[7]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax10[0]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax10[1]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax10[2]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax10[3]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax10[4]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax10[5]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax10[6]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax10[7]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax09[0]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax09[1]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax09[2]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax09[3]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax09[4]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax09[5]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax09[6]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax09[7]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax08[0]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax08[1]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax08[2]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax08[3]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax08[4]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax08[5]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax08[6]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax08[7]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax07[0]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax07[1]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax07[2]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax07[3]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax07[4]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax07[5]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax07[6]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax07[7]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax06[0]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax06[1]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax06[2]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax06[3]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax06[4]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax06[5]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax06[6]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax06[7]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax05[0]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax05[1]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax05[2]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax05[3]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax05[4]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax05[5]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax05[6]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax05[7]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax04[0]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax04[1]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax04[2]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax04[3]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax04[4]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax04[5]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax04[6]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax04[7]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax03[0]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax03[1]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax03[2]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax03[3]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax03[4]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax03[5]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax03[6]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax03[7]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax02[0]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax02[1]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax02[2]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax02[3]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax02[4]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax02[5]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax02[6]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax02[7]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax01[0]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax01[1]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax01[2]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax01[3]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax01[4]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax01[5]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax01[6]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax01[7]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax00[0]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax00[1]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax00[2]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax00[3]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax00[4]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax00[5]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax00[6]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "Ax00[7]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "buf_out[0]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "buf_out[1]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "buf_out[2]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "buf_out[3]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "buf_out[4]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "buf_out[5]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "buf_out[6]" at ochoBits.vhd(15)
-Info (10041): Inferred latch for "buf_out[7]" at ochoBits.vhd(15)
+Info (278001): Inferred 2 megafunctions from design logic
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "Mult0"
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Div0"
+Info (12130): Elaborated megafunction instantiation "lpm_mult:Mult0"
+Info (12133): Instantiated megafunction "lpm_mult:Mult0" with the following parameter:
+    Info (12134): Parameter "LPM_WIDTHA" = "8"
+    Info (12134): Parameter "LPM_WIDTHB" = "8"
+    Info (12134): Parameter "LPM_WIDTHP" = "16"
+    Info (12134): Parameter "LPM_WIDTHR" = "16"
+    Info (12134): Parameter "LPM_WIDTHS" = "1"
+    Info (12134): Parameter "LPM_REPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "INPUT_A_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "INPUT_B_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "MAXIMIZE_SPEED" = "5"
+Info (12021): Found 1 design units, including 1 entities, in source file db/mult_73t.tdf
+    Info (12023): Found entity 1: mult_73t
+Info (12130): Elaborated megafunction instantiation "lpm_divide:Div0"
+Info (12133): Instantiated megafunction "lpm_divide:Div0" with the following parameter:
+    Info (12134): Parameter "LPM_WIDTHN" = "8"
+    Info (12134): Parameter "LPM_WIDTHD" = "8"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "LPM_HINT" = "LPM_REMAINDERPOSITIVE=FALSE"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_fvo.tdf
+    Info (12023): Found entity 1: lpm_divide_fvo
+Info (12021): Found 1 design units, including 1 entities, in source file db/abs_divider_aag.tdf
+    Info (12023): Found entity 1: abs_divider_aag
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_i4f.tdf
+    Info (12023): Found entity 1: alt_u_div_i4f
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_7pc.tdf
+    Info (12023): Found entity 1: add_sub_7pc
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_8pc.tdf
+    Info (12023): Found entity 1: add_sub_8pc
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_abs_5v9.tdf
+    Info (12023): Found entity 1: lpm_abs_5v9
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 327 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 13 input pins
+Info (21057): Implemented 490 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 14 input pins
     Info (21059): Implemented 8 output pins
-    Info (21061): Implemented 306 logic cells
-Info: Quartus II 32-bit Analysis & Synthesis was successful. 0 errors, 22 warnings
-    Info: Peak virtual memory: 393 megabytes
-    Info: Processing ended: Thu Oct 17 21:18:39 2019
-    Info: Elapsed time: 00:00:03
-    Info: Total CPU time (on all processors): 00:00:03
+    Info (21061): Implemented 467 logic cells
+    Info (21062): Implemented 1 DSP elements
+Info: Quartus II 32-bit Analysis & Synthesis was successful. 0 errors, 2 warnings
+    Info: Peak virtual memory: 404 megabytes
+    Info: Processing ended: Wed Oct 23 20:41:46 2019
+    Info: Elapsed time: 00:00:09
+    Info: Total CPU time (on all processors): 00:00:05
 
 
